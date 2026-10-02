@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sketsa Halaman Utama Ponsel - TutorCare (Elemen Semantik HTML5)</title>
+  <style>
+    /* ==========================================================
+       STYLE SKETSA WIREFRAME PONSEL DENGAN ANOTASI SEMANTIK
+       ========================================================== */
+    :root {
+      --bg-blueprint: #f0f4f8;
+      --phone-border: #1e293b;
+      --wire-border: #64748b;
+      --wire-box-bg: #ffffff;
+      --wire-text: #0f172a;
+      
+      /* Warna Label Semantik (Color-coded semantic tags) */
+      --tag-header-bg: #fef08a; --tag-header-border: #ca8a04; --tag-header-text: #854d0e;
+      --tag-nav-bg: #dbeafe;    --tag-nav-border: #3b82f6;    --tag-nav-text: #1e40af;
+      --tag-main-bg: #dcfce7;   --tag-main-border: #22c55e;   --tag-main-text: #15803d;
+      --tag-sec-bg: #f3e8ff;    --tag-sec-border: #a855f7;    --tag-sec-text: #6b21a8;
+      --tag-art-bg: #ffedd5;    --tag-art-border: #f97316;    --tag-art-text: #9a3412;
+      --tag-aside-bg: #cffafe;  --tag-aside-border: #06b6d4;  --tag-aside-text: #0e7490;
+      --tag-foot-bg: #e2e8f0;   --tag-foot-border: #64748b;   --tag-foot-text: #334155;
+      --tag-form-bg: #fee2e2;   --tag-form-border: #ef4444;   --tag-form-text: #991b1b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-blueprint);
+      color: var(--wire-text);
+      line-height: 1.45;
+      padding: 24px 12px;
+    }
+
+    /* Floating Toolbar untuk Pengguna / Dosen */
+    .toolbar-bar {
+      position: sticky;
+      top: 12px;
+      z-index: 1000;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      max-width: 540px;
+      margin: 0 auto 24px;
+    }
+
+    .toolbar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-tool {
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background 0.2s;
+    }
+    .btn-tool:hover { background: #1d4ed8; }
+    .btn-tool-secondary { background: #334155; }
+    .btn-tool-secondary:hover { background: #475569; }
+
+    /* SMARTPHONE DEVICE FRAME */
+    .phone-container {
+      max-width: 440px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 8px solid var(--phone-border);
+      border-radius: 40px;
+      padding: 20px 14px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+      position: relative;
+    }
+
+    /* Phone Speaker / Dynamic Island Notch */
+    .phone-notch {
+      width: 120px;
+      height: 18px;
+      background: #0f172a;
+      border-radius: 12px;
+      margin: 0 auto 16px;
+    }
+
+    /* Badge Tag Semantik Universal */
+    .semantic-badge {
+      display: inline-flex;
+      align-items: center;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 5px;
+      margin-bottom: 6px;
+      border-width: 1px;
+      border-style: solid;
+      letter-spacing: 0.4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .badge-header { background: var(--tag-header-bg); border-color: var(--tag-header-border); color: var(--tag-header-text); }
+    .badge-nav    { background: var(--tag-nav-bg);    border-color: var(--tag-nav-border);    color: var(--tag-nav-text); }
+    .badge-main   { background: var(--tag-main-bg);   border-color: var(--tag-main-border);   color: var(--tag-main-text); }
+    .badge-sec    { background: var(--tag-sec-bg);    border-color: var(--tag-sec-border);    color: var(--tag-sec-text); }
+    .badge-art    { background: var(--tag-art-bg);    border-color: var(--tag-art-border);    color: var(--tag-art-text); }
+    .badge-aside  { background: var(--tag-aside-bg);  border-color: var(--tag-aside-border);  color: var(--tag-aside-text); }
+    .badge-foot   { background: var(--tag-foot-bg);   border-color: var(--tag-foot-border);   color: var(--tag-foot-text); }
+    .badge-form   { background: var(--tag-form-bg);   border-color: var(--tag-form-border);   color: var(--tag-form-text); }
+
+    /* Kotak-kotak Wireframe */
+    .wire-box {
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 16px;
+      background-color: var(--wire-box-bg);
+    }
+
+    /* 1. TOP BAR PONSEL (STACKED) */
+    .wf-top-bar {
+      background: #1e293b;
+      color: #f1f5f9;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      font-size: 0.8rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* 2. HEADER & HAMBURGER BUTTON (MOBILE) */
+    .wf-header {
+      background: #ffffff;
+      border: 2px solid #3b82f6;
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .wf-logo-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .wf-logo-icon {
+      width: 34px;
+      height: 34px;
+      background: #2563eb;
+      color: white;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+    .wf-hamburger-btn {
+      width: 38px;
+      height: 34px;
+      background: #f1f5f9;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    /* 3. MAIN CONTAINER */
+    .wf-main {
+      border: 2px solid #22c55e;
+      border-radius: 8px;
+      padding: 12px;
+      background: #fcfdfc;
+      margin-bottom: 16px;
+    }
+
+    /* HERO SECTION (STACKED: TEXT DI ATAS, FORM DI BAWAH) */
+    .wf-hero-mobile {
+      background: #f0f9ff;
+      border: 2px solid #93c5fd;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+    }
+    .wf-hero-mobile h1 {
+      font-size: 1.35rem;
+      color: #0f172a;
+      line-height: 1.25;
+      margin: 8px 0;
+    }
+    .wf-hero-mobile p {
+      font-size: 0.9rem;
+      color: #475569;
+      margin-bottom: 12px;
+    }
+
+    /* FINDER FORM CARD (FULL WIDTH PONSEL) */
+    .wf-finder-card-mobile {
+      background: #ffffff;
+      border: 2px solid #ef4444;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 14px;
+    }
+    .wf-finder-card-mobile h2 {
+      font-size: 1.05rem;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+    .wf-input-mock {
+      width: 100%;
+      height: 38px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      background: #f8fafc;
+      padding: 0 10px;
+      font-size: 0.85rem;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      margin-top: 4px;
+      margin-bottom: 10px;
+    }
+    .wf-submit-btn-mobile {
+      width: 100%;
+      height: 40px;
+      background: #2563eb;
+      color: white;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    /* HOW IT WORKS (STACKED 1 KOLOM) */
+    .wf-step-card-mobile {
+      background: white;
+      border: 2px solid #f97316;
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .step-num-mobile {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #ffedd5;
+      color: #c2410c;
+      font-weight: 800;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1.5px solid #fdba74;
+    }
+
+    /* TUTOR CARD MOBILE (1 PER BARIS) */
+    .wf-tutor-card-mobile {
+      background: #ffffff;
+      border: 2px solid #f97316;
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .tutor-avatar-mock-sm {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #e0f2fe;
+      border: 2px solid #38bdf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    /* EMPATHY BANNER ASIDE MOBILE */
+    .wf-empathy-mobile {
+      background: #1e3a8a;
+      color: white;
+      border: 2px solid #06b6d4;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    /* TESTIMONIALS MOBILE (STACKED) */
+    .wf-testi-card-mobile {
+      background: white;
+      border: 2px solid #f97316;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+
+    /* FAQ MOBILE */
+    .wf-faq-item-mobile {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    /* FOOTER MOBILE (1 KOLOM) */
+    .wf-footer-mobile {
+      background: #0f172a;
+      color: #cbd5e1;
+      border: 2px solid #64748b;
+      border-radius: 8px;
+      padding: 18px 14px;
+      font-size: 0.85rem;
+    }
+    .footer-section-divider {
+      border-top: 1px solid #334155;
+      margin: 12px 0;
+    }
+
+    /* Print View Helper */
+    @media print {
+      body { background: white; padding: 0; }
+      .toolbar-bar { display: none; }
+      .phone-container { border: 2px solid #000; box-shadow: none; max-width: 100%; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Action Bar -->
+  <div class="toolbar-bar">
+    <div class="toolbar-title">
+      <span>📱</span> 
+      <span>Sketsa Wireframe: Tampilan Ponsel (375px–480px)</span>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn-tool" onclick="window.print()">🖨️ Cetak / PDF</button>
+      <a href="sketsa_desktop.html" class="btn-tool btn-tool-secondary">🖥️ Sketsa Desktop →</a>
+    </div>
+  </div>
+
+  <!-- SMARTPHONE DEVICE FRAME -->
+  <div class="phone-container">
+    
+    <!-- Notch / Dynamic Island -->
+    <div class="phone-notch"></div>
+
+    <!-- 1. TOP ANNOUNCEMENT BAR (STACKED) -->
+    <div>
+      <span class="semantic-badge badge-header">&lt;div class="top-bar"&gt;</span>
+      <div class="wf-top-bar">
+        <div>📞 <strong>Toll-Free: 0800-123-4567</strong></div>
+        <div>🔍 [button] Bigger Text Mode</div>
+      </div>
+    </div>
+
+    <!-- 2. HEADER & HAMBURGER NAV (MOBILE) -->
+    <div>
+      <span class="semantic-badge badge-header">&lt;header&gt;</span>
+      <div class="wf-header">
+        <div class="wf-logo-box">
+          <div class="wf-logo-icon">🎓</div>
+          <div>
+            <strong style="font-size: 1.05rem; color: #0f172a; display: block; line-height: 1.1;">TutorCare</strong>
+            <small style="color: #64748b; font-size: 0.75rem;">Gentle Learning</small>
+          </div>
+        </div>
+
+        <!-- Tombol Menu Responsif Ponsel -->
+        <div>
+          <span class="semantic-badge badge-nav">&lt;nav&gt; (Mobile)</span>
+          <div class="wf-hamburger-btn" title="Tombol Menu Hamburger">
+            <span>☰</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. MAIN CONTENT CONTAINER -->
+    <span class="semantic-badge badge-main">&lt;main&gt;</span>
+    <div class="wf-main">
+
+      <!-- SECTION 1: HERO SECTION (STACKED VERTIKAL) -->
+      <div>
+        <span class="semantic-badge badge-sec">&lt;section class="hero-section"&gt;</span>
+        <div class="wf-hero-mobile">
+          <span style="background: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 12px; font-weight: bold; font-size: 0.75rem;">
+            ❤️ Extra Care &amp; Patience
+          </span>
+          <h1>&lt;h1&gt;School feels difficult? We help you understand.&lt;/h1&gt;</h1>
+          <p>&lt;p&gt;Certified friendly tutors explain step-by-step at your child's pace.&lt;/p&gt;</p>
+          
+          <div style="font-size: 0.8rem; font-weight: 600; color: #166534; display: flex; flex-direction: column; gap: 4px;">
+            <div>✓ 100% Patient Teachers (No scolding)</div>
+            <div>✓ Free 30-Min Trial Session</div>
+            <div>✓ Learn online or in-person at home</div>
+          </div>
+
+          <!-- Quick Finder Form Card (Ditumpuk ke bawah full width) -->
+          <div>
+            <span class="semantic-badge badge-form" style="margin-top: 12px;">&lt;form class="finder-card"&gt;</span>
+            <div class="wf-finder-card-mobile">
+              <h2>&lt;h2&gt;Find Your Perfect Tutor&lt;/h2&gt;</h2>
+              
+              <label style="font-size: 0.8rem; font-weight: bold;">&lt;label&gt; 📚 1. What subject? &lt;/label&gt;</label>
+              <div class="wf-input-mock">&lt;select&gt; Math, Science, English...</div>
+
+              <label style="font-size: 0.8rem; font-weight: bold;">&lt;label&gt; 🎒 2. Student grade? &lt;/label&gt;</label>
+              <div class="wf-input-mock">&lt;select&gt; Elementary, Middle, High...</div>
+
+              <label style="font-size: 0.8rem; font-weight: bold;">&lt;label&gt; 🏡 3. Where learn? &lt;/label&gt;</label>
+              <div class="wf-input-mock">&lt;select&gt; Online Video / In-Person</div>
+
+              <div class="wf-submit-btn-mobile">&lt;button type="submit"&gt; 🔍 Find Tutors</div>
+              <small style="display: block; text-align: center; margin-top: 8px; color: #64748b; font-size: 0.75rem;">
+                Prefer human? &lt;a href="tel:..."&gt;Call Toll-Free&lt;/a&gt;
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: HOW IT WORKS (STACKED 3 KARTU) -->
+      <div>
+        <span class="semantic-badge badge-sec">&lt;section id="how-it-works"&gt;</span>
+        <div class="wire-box" style="background: #f8fafc;">
+          <h2 style="font-size: 1.15rem; text-align: center; margin-bottom: 12px;">&lt;h2&gt;How It Works (3 Steps)&lt;/h2&gt;</h2>
+
+          <!-- Step 1 Article -->
+          <div class="wf-step-card-mobile">
+            <div class="step-num-mobile">1</div>
+            <div>
+              <span class="semantic-badge badge-art">&lt;article&gt;</span>
+              <strong style="display: block; font-size: 0.9rem;">&lt;h3&gt;Pick What You Need&lt;/h3&gt;</strong>
+              <p style="font-size: 0.8rem; color: #475569;">&lt;p&gt;Choose tricky subject and inform us if child is shy.&lt;/p&gt;</p>
+            </div>
+          </div>
+
+          <!-- Step 2 Article -->
+          <div class="wf-step-card-mobile">
+            <div class="step-num-mobile">2</div>
+            <div>
+              <span class="semantic-badge badge-art">&lt;article&gt;</span>
+              <strong style="display: block; font-size: 0.9rem;">&lt;h3&gt;Meet Tutor For Free&lt;/h3&gt;</strong>
+              <p style="font-size: 0.8rem; color: #475569;">&lt;p&gt;30-min relaxed introductory session with zero cost.&lt;/p&gt;</p>
+            </div>
+          </div>
+
+          <!-- Step 3 Article -->
+          <div class="wf-step-card-mobile">
+            <div class="step-num-mobile">3</div>
+            <div>
+              <span class="semantic-badge badge-art">&lt;article&gt;</span>
+              <strong style="display: block; font-size: 0.9rem;">&lt;h3&gt;Watch Confidence Grow&lt;/h3&gt;</strong>
+              <p style="font-size: 0.8rem; color: #475569;">&lt;p&gt;Regular stress-free study with progress reports.&lt;/p&gt;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: TUTORS LIST & EMPATHY BANNER (STACKED) -->
+      <div>
+        <span class="semantic-badge badge-sec">&lt;section id="featured-tutors"&gt;</span>
+        <div class="wire-box">
+          <h2 style="font-size: 1.15rem; text-align: center; margin-bottom: 10px;">&lt;h2&gt;Meet Patient Tutors&lt;/h2&gt;</h2>
+          
+          <!-- Category Filter Bar (Mobile Wrapped) -->
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; margin-bottom: 12px;">
+            <span style="background: #2563eb; color: white; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem;">[btn] All (6)</span>
+            <span style="background: #e2e8f0; color: #334155; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem;">[btn] Math</span>
+            <span style="background: #e2e8f0; color: #334155; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem;">[btn] Science</span>
+          </div>
+
+          <!-- Tutor Card 1 Mobile -->
+          <div class="wf-tutor-card-mobile">
+            <span class="semantic-badge badge-art">&lt;article class="tutor-card"&gt;</span>
+            <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 8px;">
+              <div class="tutor-avatar-mock-sm">👩‍🏫</div>
+              <div>
+                <strong style="font-size: 0.95rem;">&lt;h3&gt;Sarah Jenkins, B.Ed&lt;/h3&gt;</strong>
+                <div style="color: #166534; font-size: 0.75rem; font-weight: bold;">✓ 7 Yrs Math Specialist</div>
+                <div style="color: #f59e0b; font-size: 0.75rem;">★★★★★ 4.9 (112 review)</div>
+              </div>
+            </div>
+            <p style="font-size: 0.8rem; color: #475569; margin-bottom: 8px;">"Fun real-life examples and drawings so students understand quickly..."</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 8px;">
+              <strong>$18 / hr</strong>
+              <span style="background: #2563eb; color: white; padding: 4px 10px; border-radius: 15px; font-size: 0.75rem; font-weight: bold;">
+                &lt;button&gt;Book Trial&lt;/button&gt;
+              </span>
+            </div>
+          </div>
+
+          <!-- Tutor Card 2 Mobile -->
+          <div class="wf-tutor-card-mobile">
+            <span class="semantic-badge badge-art">&lt;article class="tutor-card"&gt;</span>
+            <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 8px;">
+              <div class="tutor-avatar-mock-sm">👨‍🔬</div>
+              <div>
+                <strong style="font-size: 0.95rem;">&lt;h3&gt;David Pratama, M.Sc&lt;/h3&gt;</strong>
+                <div style="color: #166534; font-size: 0.75rem; font-weight: bold;">✓ 6 Yrs Science Specialist</div>
+                <div style="color: #f59e0b; font-size: 0.75rem;">★★★★★ 5.0 (89 review)</div>
+              </div>
+            </div>
+            <p style="font-size: 0.8rem; color: #475569; margin-bottom: 8px;">"Physics is not memorizing; it's seeing how the world works..."</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 8px;">
+              <strong>$20 / hr</strong>
+              <span style="background: #2563eb; color: white; padding: 4px 10px; border-radius: 15px; font-size: 0.75rem; font-weight: bold;">
+                &lt;button&gt;Book Trial&lt;/button&gt;
+              </span>
+            </div>
+          </div>
+
+          <!-- EMPATHY BANNER ASIDE MOBILE -->
+          <div>
+            <span class="semantic-badge badge-aside">&lt;aside class="empathy-banner"&gt;</span>
+            <div class="wf-empathy-mobile">
+              <strong style="font-size: 1rem; display: block; margin-bottom: 4px;">&lt;h3&gt;Feeling overwhelmed?&lt;/h3&gt;</strong>
+              <p style="font-size: 0.8rem; color: #cbd5e1; margin-bottom: 12px;">Over 2,000 students gained confidence. Chat for free advice.</p>
+              <div style="background: #22c55e; color: white; padding: 8px 14px; border-radius: 6px; font-weight: bold; font-size: 0.85rem;">
+                &lt;a&gt; 💬 Chat With Advisor &lt;/a&gt;
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: TESTIMONIALS (STACKED 1 KOLOM) -->
+      <div>
+        <span class="semantic-badge badge-sec">&lt;section class="testimonials"&gt;</span>
+        <div class="wire-box" style="background: #f1f5f9;">
+          <h2 style="font-size: 1.1rem; text-align: center; margin-bottom: 10px;">&lt;h2&gt;Parent &amp; Student Stories&lt;/h2&gt;</h2>
+
+          <div class="wf-testi-card-mobile">
+            <span class="semantic-badge badge-art">&lt;article&gt;</span>
+            <p>&lt;blockquote&gt;"My 11yo son cried over Math. Grade went from D to B+, smiles now!"&lt;/blockquote&gt;</p>
+            <strong style="display: block; margin-top: 6px; font-style: normal; color: #0f172a;">&lt;h4&gt;Mrs. Ratna Sari (Parent)&lt;/h4&gt;</strong>
+          </div>
+
+          <div class="wf-testi-card-mobile">
+            <span class="semantic-badge badge-art">&lt;article&gt;</span>
+            <p>&lt;blockquote&gt;"Physics broke down into diagrams. Passed exam with an A!"&lt;/blockquote&gt;</p>
+            <strong style="display: block; margin-top: 6px; font-style: normal; color: #0f172a;">&lt;h4&gt;Anisa K. (12th Grade)&lt;/h4&gt;</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 5: FAQ & CALLBACK MOBILE -->
+      <div>
+        <span class="semantic-badge badge-sec">&lt;section id="faq"&gt;</span>
+        <div class="wire-box">
+          <h2 style="font-size: 1.1rem; text-align: center; margin-bottom: 12px;">&lt;h2&gt;Frequently Asked Questions&lt;/h2&gt;</h2>
+
+          <div class="wf-faq-item-mobile">&lt;button&gt; [+] What if child is very shy? &lt;/button&gt;</div>
+          <div class="wf-faq-item-mobile">&lt;button&gt; [+] How does Free Trial work? &lt;/button&gt;</div>
+          <div class="wf-faq-item-mobile">&lt;button&gt; [+] Not good with technology? &lt;/button&gt;</div>
+
+          <!-- Callback Box Mobile -->
+          <div style="background: #eff6ff; border: 1.5px dashed #3b82f6; border-radius: 8px; padding: 14px; text-align: center; margin-top: 14px;">
+            <span class="semantic-badge badge-form">&lt;form class="callback-form"&gt;</span>
+            <strong style="display: block; color: #1e3a8a; font-size: 0.95rem; margin-bottom: 4px;">&lt;h3&gt;Prefer us to call you?&lt;/h3&gt;</strong>
+            <p style="font-size: 0.75rem; color: #475569; margin-bottom: 8px;">Leave phone number, we call within 15 mins.</p>
+            <div class="wf-input-mock">&lt;input type="tel" placeholder="Enter phone/WhatsApp"&gt;</div>
+            <div style="background: #1e40af; color: white; padding: 8px; border-radius: 6px; font-weight: bold; font-size: 0.85rem;">
+              &lt;button&gt;Request Call 📞&lt;/button&gt;
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- End of main -->
+
+    <!-- 4. FOOTER (STACKED 1 KOLOM MOBILE) -->
+    <div>
+      <span class="semantic-badge badge-foot">&lt;footer&gt;</span>
+      <footer class="wf-footer-mobile">
+        <h4 style="color: white; font-size: 1.1rem; margin-bottom: 4px;">&lt;h4&gt;TutorCare&lt;/h4&gt;</h4>
+        <p style="font-size: 0.8rem; line-height: 1.5;">&lt;p&gt;Helping students overcome school difficulties through gentle 1-on-1 tutoring.&lt;/p&gt;</p>
+
+        <div class="footer-section-divider"></div>
+
+        <strong style="color: white; display: block; margin-bottom: 4px;">&lt;h5&gt;Subjects&lt;/h5&gt;</strong>
+        <p style="font-size: 0.8rem;">Math | Science | English | Homework Help</p>
+
+        <div class="footer-section-divider"></div>
+
+        <strong style="color: white; display: block; margin-bottom: 4px;">&lt;h5&gt;Direct Contact&lt;/h5&gt;</strong>
+        <div style="display: flex; flex-direction: column; gap: 4px; font-size: 0.8rem;">
+          <div>📞 0800-123-4567 (Toll Free)</div>
+          <div>💬 WhatsApp: 0812-3456-7890</div>
+          <div>✉️ help@tutorcare.org</div>
+        </div>
+
+        <div class="footer-section-divider"></div>
+
+        <p style="font-size: 0.75rem; color: #94a3b8; text-align: center;">
+          &lt;p&gt;&amp;copy; 2026 TutorCare Education Services. All rights reserved.&lt;/p&gt;
+        </p>
+      </footer>
+    </div>
+
+  </div><!-- End of Phone Container -->
+
+</body>
+</html>
+

@@ -1,0 +1,244 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 2450" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .phone-frame { fill: #ffffff; stroke: #334155; stroke-width: 4; rx: 24px; }
+      .wireframe-box { fill: #ffffff; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 4 2; }
+      .wireframe-solid { fill: #ffffff; stroke: #64748b; stroke-width: 1.5; }
+      .accent-box { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1.5; }
+      .tag-badge { font-family: 'Courier New', monospace; font-size: 11px; font-weight: bold; }
+      .tag-header { fill: #854d0e; }
+      .badge-bg-header { fill: #fef08a; stroke: #ca8a04; stroke-width: 1; }
+      .tag-nav { fill: #1e40af; }
+      .badge-bg-nav { fill: #dbeafe; stroke: #3b82f6; stroke-width: 1; }
+      .tag-main { fill: #15803d; }
+      .badge-bg-main { fill: #dcfce7; stroke: #22c55e; stroke-width: 1; }
+      .tag-section { fill: #6b21a8; }
+      .badge-bg-section { fill: #f3e8ff; stroke: #a855f7; stroke-width: 1; }
+      .tag-article { fill: #9a3412; }
+      .badge-bg-article { fill: #ffedd5; stroke: #f97316; stroke-width: 1; }
+      .tag-aside { fill: #0e7490; }
+      .badge-bg-aside { fill: #cffafe; stroke: #06b6d4; stroke-width: 1; }
+      .tag-footer { fill: #334155; }
+      .badge-bg-footer { fill: #e2e8f0; stroke: #64748b; stroke-width: 1; }
+      .text-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 14px; font-weight: bold; fill: #0f172a; }
+      .text-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #64748b; }
+      .mock-btn { fill: #2563eb; rx: 6px; }
+      .mock-btn-text { font-family: sans-serif; font-size: 12px; fill: #ffffff; font-weight: bold; }
+    </style>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="500" height="2450" class="bg"/>
+
+  <!-- Phone Header Label -->
+  <rect x="0" y="0" width="500" height="40" fill="#0f172a" />
+  <text x="20" y="25" font-family="sans-serif" font-size="14" font-weight="bold" fill="#ffffff">SKETSA WIREFRAME PONSEL (VIEWPORT: 375px–480px)</text>
+
+  <!-- Outer Phone Border -->
+  <rect x="20" y="55" width="460" height="2360" class="phone-frame"/>
+
+  <!-- Mobile Notch / Status Bar -->
+  <rect x="180" y="65" width="140" height="15" fill="#334155" rx="7"/>
+
+  <!-- ==================== 1. TOP-BAR & HEADER (MOBILE) ==================== -->
+  <!-- Top Bar (Stacked on Mobile) -->
+  <rect x="30" y="90" width="440" height="50" fill="#1e293b" rx="4"/>
+  <rect x="360" y="85" width="105" height="18" rx="3" class="badge-bg-header"/>
+  <text x="366" y="98" class="tag-badge tag-header">&lt;div.top-bar&gt;</text>
+  <text x="45" y="110" font-family="sans-serif" font-size="10" fill="#cbd5e1">📞 Toll-Free: 0800-123-4567</text>
+  <text x="45" y="128" font-family="sans-serif" font-size="10" fill="#f8fafc">🔍 [button] Bigger Text Mode</text>
+
+  <!-- Header & Mobile Nav -->
+  <rect x="30" y="148" width="440" height="60" class="wireframe-solid" rx="6"/>
+  <rect x="40" y="140" width="75" height="18" rx="3" class="badge-bg-header"/>
+  <text x="46" y="153" class="tag-badge tag-header">&lt;header&gt;</text>
+
+  <!-- Logo -->
+  <rect x="42" y="162" width="32" height="32" fill="#3b82f6" rx="6"/>
+  <text x="51" y="184" font-family="sans-serif" font-size="16" fill="#ffffff">🎓</text>
+  <text x="82" y="176" class="text-title" font-size="13">TutorCare</text>
+  <text x="82" y="190" class="text-desc" font-size="10">Gentle Learning</text>
+
+  <!-- Mobile Hamburger Menu Button -->
+  <rect x="410" y="160" width="46" height="36" fill="#f1f5f9" stroke="#cbd5e1" rx="6"/>
+  <text x="425" y="183" font-family="sans-serif" font-size="18" fill="#334155">☰</text>
+  <rect x="350" y="140" width="115" height="18" rx="3" class="badge-bg-nav"/>
+  <text x="355" y="153" class="tag-badge tag-nav">&lt;button.menu-btn&gt;</text>
+
+  <!-- ==================== 2. MAIN CONTAINER ==================== -->
+  <rect x="30" y="218" width="440" height="1850" class="wireframe-box" rx="6"/>
+  <rect x="40" y="210" width="65" height="18" rx="3" class="badge-bg-main"/>
+  <text x="47" y="223" class="tag-badge tag-main">&lt;main&gt;</text>
+
+  <!-- ==================== HERO SECTION (STACKED) ==================== -->
+  <rect x="40" y="238" width="420" height="530" fill="#f0f9ff" stroke="#bae6fd" rx="6"/>
+  <rect x="50" y="230" width="160" height="18" rx="3" class="badge-bg-section"/>
+  <text x="56" y="243" class="tag-badge tag-section">&lt;section.hero-section&gt;</text>
+
+  <!-- Hero Content Stack 1 -->
+  <rect x="50" y="258" width="400" height="210" fill="#ffffff" stroke="#cbd5e1" rx="6"/>
+  <rect x="60" y="268" width="230" height="20" fill="#fef3c7" stroke="#fde68a" rx="10"/>
+  <text x="68" y="282" font-family="sans-serif" font-size="9" fill="#92400e">❤️ Dedicated to struggling students</text>
+  
+  <text x="60" y="310" class="text-title" font-size="16">&lt;h1&gt; School feels difficult? &lt;br/&gt; We help you understand. &lt;/h1&gt;</text>
+  <text x="60" y="350" class="text-desc" font-size="11">&lt;p&gt; Friendly certified tutors explain step-by-step at your child's pace. &lt;/p&gt;</text>
+  
+  <text x="60" y="388" font-family="sans-serif" font-size="10" font-weight="600" fill="#15803d">✓ 100% Patient &amp; Kind Teachers</text>
+  <text x="60" y="408" font-family="sans-serif" font-size="10" font-weight="600" fill="#15803d">✓ Free 30-Minute Trial Session</text>
+  <text x="60" y="428" font-family="sans-serif" font-size="10" font-weight="600" fill="#15803d">✓ Learn from home or online</text>
+
+  <!-- Finder Card Stack 2 (Below Hero Text) -->
+  <rect x="50" y="480" width="400" height="275" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5" rx="6"/>
+  <rect x="60" y="470" width="130" height="18" rx="3" class="badge-bg-article"/>
+  <text x="66" y="483" class="tag-badge tag-article">&lt;form.finder-card&gt;</text>
+
+  <text x="65" y="505" class="text-title" font-size="13">&lt;h2&gt; Find Your Perfect Tutor &lt;/h2&gt;</text>
+  <text x="65" y="525" class="text-desc">&lt;label&gt; 📚 1. Select Subject &lt;/label&gt;</text>
+  <rect x="65" y="533" width="370" height="28" fill="#f8fafc" stroke="#cbd5e1" rx="4"/>
+  <text x="75" y="551" class="text-desc">&lt;select&gt; Math, Science, English...</text>
+
+  <text x="65" y="575" class="text-desc">&lt;label&gt; 🎒 2. Student Grade Level &lt;/label&gt;</text>
+  <rect x="65" y="583" width="370" height="28" fill="#f8fafc" stroke="#cbd5e1" rx="4"/>
+  <text x="75" y="601" class="text-desc">&lt;select&gt; Elementary, Middle, High School...</text>
+
+  <text x="65" y="625" class="text-desc">&lt;label&gt; 🏡 3. Learning Mode &lt;/label&gt;</text>
+  <rect x="65" y="633" width="370" height="28" fill="#f8fafc" stroke="#cbd5e1" rx="4"/>
+  <text x="75" y="651" class="text-desc">&lt;select&gt; Online Video Call / In-Person</text>
+
+  <rect x="65" y="675" width="370" height="36" class="mock-btn"/>
+  <text x="145" y="698" class="mock-btn-text">&lt;button&gt; 🔍 Find Friendly Tutors</text>
+  <text x="120" y="732" class="text-desc" font-size="10">Prefer talking? &lt;a&gt;Call Toll-Free&lt;/a&gt;</text>
+
+  <!-- ==================== SECTION 2: HOW IT WORKS (STACKED) ==================== -->
+  <rect x="40" y="780" width="420" height="340" class="accent-box" rx="6"/>
+  <rect x="50" y="770" width="160" height="18" rx="3" class="badge-bg-section"/>
+  <text x="56" y="783" class="tag-badge tag-section">&lt;section#how-it-works&gt;</text>
+
+  <text x="110" y="805" class="text-title" font-size="14">&lt;h2&gt; How It Works in 3 Steps &lt;/h2&gt;</text>
+  
+  <!-- Step 1 Stacked -->
+  <rect x="50" y="820" width="400" height="65" fill="#ffffff" stroke="#cbd5e1" rx="6"/>
+  <circle cx="75" cy="852" r="14" fill="#dbeafe"/>
+  <text x="71" y="857" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1d4ed8">1</text>
+  <text x="100" y="845" class="text-title" font-size="12">&lt;h3&gt; 1. Pick What You Need &lt;/h3&gt;</text>
+  <text x="100" y="865" class="text-desc">&lt;p&gt; Tell us the tricky subject &amp; child's learning pace &lt;/p&gt;</text>
+
+  <!-- Step 2 Stacked -->
+  <rect x="50" y="895" width="400" height="65" fill="#ffffff" stroke="#cbd5e1" rx="6"/>
+  <circle cx="75" cy="927" r="14" fill="#dbeafe"/>
+  <text x="71" y="932" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1d4ed8">2</text>
+  <text x="100" y="920" class="text-title" font-size="12">&lt;h3&gt; 2. Meet Tutor For Free &lt;/h3&gt;</text>
+  <text x="100" y="940" class="text-desc">&lt;p&gt; 30-min relaxed intro session with zero risk &lt;/p&gt;</text>
+
+  <!-- Step 3 Stacked -->
+  <rect x="50" y="970" width="400" height="65" fill="#ffffff" stroke="#cbd5e1" rx="6"/>
+  <circle cx="75" cy="1002" r="14" fill="#dbeafe"/>
+  <text x="71" y="1007" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1d4ed8">3</text>
+  <text x="100" y="995" class="text-title" font-size="12">&lt;h3&gt; 3. Watch Confidence Grow &lt;/h3&gt;</text>
+  <text x="100" y="1015" class="text-desc">&lt;p&gt; Zero pressure learning with session progress &lt;/p&gt;</text>
+
+  <!-- ==================== SECTION 3: TUTORS (STACKED) ==================== -->
+  <rect x="40" y="1135" width="420" height="430" fill="#ffffff" stroke="#cbd5e1" rx="6"/>
+  <rect x="50" y="1125" width="170" height="18" rx="3" class="badge-bg-section"/>
+  <text x="56" y="1138" class="tag-badge tag-section">&lt;section#featured-tutors&gt;</text>
+
+  <text x="90" y="1160" class="text-title" font-size="14">&lt;h2&gt; Meet Experienced Tutors &lt;/h2&gt;</text>
+  
+  <!-- Filter buttons (wrapped / scroll) -->
+  <text x="60" y="1182" class="text-desc">[btn] All (6)  |  [btn] Math  |  [btn] Science</text>
+
+  <!-- Tutor Card 1 (Mobile stacked) -->
+  <rect x="50" y="1195" width="400" height="125" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5" rx="6"/>
+  <rect x="60" y="1187" width="145" height="16" rx="3" class="badge-bg-article"/>
+  <text x="66" y="1199" class="tag-badge tag-article">&lt;article.tutor-card&gt;</text>
+  <circle cx="80" cy="1235" r="20" fill="#e0f2fe"/>
+  <text x="72" y="1242" font-family="sans-serif" font-size="16">👩‍🏫</text>
+  <text x="110" y="1225" class="text-title" font-size="12">&lt;h3&gt; Sarah Jenkins, B.Ed &lt;/h3&gt;</text>
+  <text x="110" y="1242" class="text-desc" font-size="10">★ 4.9 (112 students) • Verified</text>
+  <text x="65" y="1270" class="text-desc" font-size="10">Tags: [Math SD/SMP] [Visual]</text>
+  <text x="65" y="1300" font-weight="bold" fill="#0f172a" font-size="12">$18/hr</text>
+  <rect x="290" y="1280" width="145" height="28" class="mock-btn"/>
+  <text x="310" y="1298" class="mock-btn-text">[btn] Book Free Trial</text>
+
+  <!-- Tutor Card 2 (Mobile stacked) -->
+  <rect x="50" y="1330" width="400" height="125" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5" rx="6"/>
+  <rect x="60" y="1322" width="145" height="16" rx="3" class="badge-bg-article"/>
+  <text x="66" y="1334" class="tag-badge tag-article">&lt;article.tutor-card&gt;</text>
+  <circle cx="80" cy="1370" r="20" fill="#e0f2fe"/>
+  <text x="72" y="1377" font-family="sans-serif" font-size="16">👨‍🔬</text>
+  <text x="110" y="1360" class="text-title" font-size="12">&lt;h3&gt; David Pratama, M.Sc &lt;/h3&gt;</text>
+  <text x="110" y="1377" class="text-desc" font-size="10">★ 5.0 (89 students) • Verified</text>
+  <text x="65" y="1405" class="text-desc" font-size="10">Tags: [Physics &amp; Chemistry]</text>
+  <text x="65" y="1435" font-weight="bold" fill="#0f172a" font-size="12">$20/hr</text>
+  <rect x="290" y="1415" width="145" height="28" class="mock-btn"/>
+  <text x="310" y="1433" class="mock-btn-text">[btn] Book Free Trial</text>
+
+  <!-- Mobile Empathy Banner (Aside) -->
+  <rect x="50" y="1465" width="400" height="90" fill="#1e3a8a" rx="6"/>
+  <rect x="60" y="1457" width="155" height="16" rx="3" class="badge-bg-aside"/>
+  <text x="66" y="1469" class="tag-badge tag-aside">&lt;aside.empathy-banner&gt;</text>
+  <text x="65" y="1488" font-family="sans-serif" font-size="12" font-weight="bold" fill="#ffffff">&lt;h3&gt; Feeling overwhelmed? &lt;/h3&gt;</text>
+  <text x="65" y="1505" font-family="sans-serif" font-size="10" fill="#cbd5e1">&lt;p&gt; Over 2,000 students gained confidence. &lt;/p&gt;</text>
+  <rect x="65" y="1515" width="370" height="30" fill="#22c55e" rx="4"/>
+  <text x="155" y="1535" font-family="sans-serif" font-size="12" font-weight="bold" fill="#ffffff">&lt;a&gt; 💬 Chat Advisor</text>
+
+  <!-- ==================== SECTION 4 & 5: TESTIMONIALS & FAQ ==================== -->
+  <rect x="40" y="1580" width="420" height="195" fill="#f8fafc" stroke="#cbd5e1" rx="6"/>
+  <rect x="50" y="1570" width="150" height="18" rx="3" class="badge-bg-section"/>
+  <text x="56" y="1583" class="tag-badge tag-section">&lt;section.testimonials&gt;</text>
+  <text x="110" y="1605" class="text-title" font-size="13">&lt;h2&gt; Student &amp; Parent Stories &lt;/h2&gt;</text>
+  
+  <rect x="50" y="1618" width="400" height="75" fill="#ffffff" stroke="#cbd5e1" rx="4"/>
+  <text x="60" y="1638" class="text-desc" font-size="10">&lt;blockquote&gt; "My 11yo son's math grade went from D to B+! Smiles now." &lt;/blockquote&gt;</text>
+  <text x="60" y="1675" font-size="11" font-weight="bold" fill="#0f172a">&lt;h4&gt; Mrs. Ratna Sari (Parent) &lt;/h4&gt;</text>
+
+  <rect x="50" y="1700" width="400" height="65" fill="#ffffff" stroke="#cbd5e1" rx="4"/>
+  <text x="60" y="1720" class="text-desc" font-size="10">&lt;blockquote&gt; "Physics broke down into simple diagrams. A in final exam!" &lt;/blockquote&gt;</text>
+  <text x="60" y="1750" font-size="11" font-weight="bold" fill="#0f172a">&lt;h4&gt; Anisa K. (12th Grade Student) &lt;/h4&gt;</text>
+
+  <!-- FAQ & Callback -->
+  <rect x="40" y="1790" width="420" height="260" fill="#ffffff" stroke="#cbd5e1" rx="6"/>
+  <rect x="50" y="1780" width="115" height="18" rx="3" class="badge-bg-section"/>
+  <text x="56" y="1793" class="tag-badge tag-section">&lt;section#faq&gt;</text>
+  <text x="135" y="1815" class="text-title" font-size="13">&lt;h2&gt; Frequently Asked Questions &lt;/h2&gt;</text>
+
+  <!-- FAQ Accordion mobile buttons -->
+  <rect x="50" y="1830" width="400" height="34" fill="#f8fafc" stroke="#cbd5e1" rx="4"/>
+  <text x="60" y="1852" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155">&lt;button&gt; [+] What if child is shy &amp; nervous? &lt;/button&gt;</text>
+
+  <rect x="50" y="1870" width="400" height="34" fill="#f8fafc" stroke="#cbd5e1" rx="4"/>
+  <text x="60" y="1892" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155">&lt;button&gt; [+] How does Free Trial work? &lt;/button&gt;</text>
+
+  <!-- Callback Box Mobile -->
+  <rect x="50" y="1915" width="400" height="120" fill="#eff6ff" stroke="#93c5fd" stroke-dasharray="4 2" rx="6"/>
+  <rect x="60" y="1907" width="160" height="16" rx="3" class="badge-bg-article"/>
+  <text x="66" y="1919" class="tag-badge tag-article">&lt;form.callback-form&gt;</text>
+  <text x="100" y="1935" class="text-title" font-size="11">&lt;h3&gt; Prefer us to call you? &lt;/h3&gt;</text>
+  <rect x="65" y="1945" width="370" height="32" fill="#ffffff" stroke="#cbd5e1" rx="4"/>
+  <text x="75" y="1965" class="text-desc">&lt;input type="tel" placeholder="Your phone number"&gt;</text>
+  <rect x="65" y="1985" width="370" height="34" class="mock-btn"/>
+  <text x="145" y="2007" class="mock-btn-text">&lt;button&gt; Request Callback 📞</text>
+
+  <!-- ==================== 3. FOOTER (MOBILE STACKED) ==================== -->
+  <rect x="30" y="2080" width="440" height="320" fill="#0f172a" rx="6"/>
+  <rect x="40" y="2070" width="75" height="18" rx="3" class="badge-bg-footer"/>
+  <text x="46" y="2083" class="tag-badge tag-footer">&lt;footer&gt;</text>
+
+  <!-- Footer Brand -->
+  <text x="50" y="2110" font-family="sans-serif" font-size="14" font-weight="bold" fill="#ffffff">&lt;h4&gt; TutorCare &lt;/h4&gt;</text>
+  <text x="50" y="2130" font-family="sans-serif" font-size="10" fill="#94a3b8">&lt;p&gt; Helping students overcome difficulties with patient 1-on-1 tutoring. &lt;/p&gt;</text>
+
+  <!-- Links stacked -->
+  <text x="50" y="2165" font-family="sans-serif" font-size="12" font-weight="bold" fill="#ffffff">&lt;h5&gt; Subjects &lt;/h5&gt;</text>
+  <text x="50" y="2185" font-family="sans-serif" font-size="10" fill="#94a3b8">&lt;ul&gt; &lt;li&gt;&lt;a&gt;Math&lt;/a&gt; | &lt;a&gt;Science&lt;/a&gt; | &lt;a&gt;English&lt;/a&gt; | &lt;a&gt;Homework&lt;/a&gt; &lt;/li&gt;&lt;/ul&gt;</text>
+
+  <text x="50" y="2220" font-family="sans-serif" font-size="12" font-weight="bold" fill="#ffffff">&lt;h5&gt; Contact Us &lt;/h5&gt;</text>
+  <text x="50" y="2240" font-family="sans-serif" font-size="10" fill="#94a3b8">📞 &lt;a&gt; 0800-123-4567 (Toll Free) &lt;/a&gt;</text>
+  <text x="50" y="2260" font-family="sans-serif" font-size="10" fill="#94a3b8">💬 &lt;a&gt; WhatsApp: 0812-3456-7890 &lt;/a&gt;</text>
+  <text x="50" y="2280" font-family="sans-serif" font-size="10" fill="#94a3b8">✉️ &lt;a&gt; help@tutorcare.org &lt;/a&gt;</text>
+
+  <line x1="50" y1="2310" x2="450" y2="2310" stroke="#334155" stroke-width="1"/>
+  <text x="50" y="2335" font-family="sans-serif" font-size="9" fill="#64748b">&lt;p&gt; &amp;copy; 2026 TutorCare Education Services. &lt;br/&gt; All rights reserved. &lt;/p&gt;</text>
+
+</svg>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dokumentasi & Sketsa Wireframe TutorCare - Desktop & Ponsel</title>
+  <style>
+    :root {
+      --primary: #1f6feb;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 30px 20px;
+    }
+    .header-doc {
+      max-width: 1300px;
+      margin: 0 auto 30px;
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .header-doc h1 {
+      font-size: 2.2rem;
+      color: #38bdf8;
+      margin-bottom: 8px;
+    }
+    .header-doc p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+    .legend-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .legend-item {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      font-weight: bold;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .l-header { background: #fef08a; color: #854d0e; }
+    .l-nav { background: #dbeafe; color: #1e40af; }
+    .l-main { background: #dcfce7; color: #15803d; }
+    .l-section { background: #f3e8ff; color: #6b21a8; }
+    .l-article { background: #ffedd5; color: #9a3412; }
+    .l-aside { background: #cffafe; color: #0e7490; }
+    .l-footer { background: #e2e8f0; color: #334155; }
+
+    .views-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+    .wireframe-panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+    .wireframe-panel h2 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #f1f5f9;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .badge-view {
+      font-size: 0.8rem;
+      background: #3b82f6;
+      color: white;
+      padding: 3px 10px;
+      border-radius: 9999px;
+    }
+    .img-wrap {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    }
+    .img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .btn-download {
+      display: inline-block;
+      margin-top: 15px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    .btn-download:hover {
+      background: #1d4ed8;
+    }
+
+    @media (max-width: 950px) {
+      .views-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-doc">
+    <h1>Sketsa Halaman Utama &amp; Pemetaan Semantik (TutorCare)</h1>
+    <p>Praktikum Pemrograman Web - Tampilan Responsif Desktop &amp; Ponsel dengan Penanda Tag HTML5 Semantik</p>
+    
+    <div class="legend-bar">
+      <span class="legend-item l-header">&lt;header&gt; Kop Halaman</span>
+      <span class="legend-item l-nav">&lt;nav&gt; Navigasi Menu</span>
+      <span class="legend-item l-main">&lt;main&gt; Konten Utama</span>
+      <span class="legend-item l-section">&lt;section&gt; Bagian Tematik</span>
+      <span class="legend-item l-article">&lt;article&gt; Kartu Mandiri</span>
+      <span class="legend-item l-aside">&lt;aside&gt; Info Tambahan / Callout</span>
+      <span class="legend-item l-footer">&lt;footer&gt; Kaki Halaman</span>
+    </div>
+  </div>
+
+  <!-- Preview JPG Sketsa Siap Pakai -->
+  <div style="max-width: 1300px; margin: 0 auto 35px; background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 20px;">
+    <h2 style="font-size: 1.3rem; margin-bottom: 12px; color: #38bdf8;">
+      🖼️ Gambar Sketsa Wireframe Lengkap (Siap Diunggah ke Tugas/LMS)
+    </h2>
+    <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 15px;">
+      File gambar siap pakai: <code>sketsa_wireframe.jpg</code>. Tampilan Desktop (1200px) &amp; Ponsel (375px) berdampingan dengan penanda elemen semantik HTML5.
+    </p>
+    <div style="background: white; border-radius: 8px; overflow: hidden; text-align: center;">
+      <img src="sketsa_wireframe.jpg" alt="Sketsa Wireframe TutorCare" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+    </div>
+    <div style="margin-top: 15px; display: flex; gap: 12px; flex-wrap: wrap;">
+      <a href="sketsa_wireframe.jpg" download class="btn-download">Unduh Gambar Sketsa (JPG) 📥</a>
+      <a href="sketsa_desktop.svg" target="_blank" class="btn-download" style="background: #0f766e;">Lihat Vektor SVG Desktop ↗</a>
+      <a href="sketsa_mobile.svg" target="_blank" class="btn-download" style="background: #0f766e;">Lihat Vektor SVG Ponsel ↗</a>
+    </div>
+  </div>
+
+  <div class="views-container">
+    <!-- Panel Desktop -->
+    <div class="wireframe-panel">
+      <h2>
+        <span>🖥️ Sketsa Vektor Desktop Detail</span>
+        <span class="badge-view">Lebar: 1200px</span>
+      </h2>
+      <div class="img-wrap">
+        <img src="sketsa_desktop.svg" alt="Sketsa Wireframe Desktop TutorCare">
+      </div>
+      <a href="sketsa_desktop.svg" target="_blank" class="btn-download">Buka Full SVG Desktop ↗</a>
+    </div>
+
+    <!-- Panel Mobile -->
+    <div class="wireframe-panel">
+      <h2>
+        <span>📱 Sketsa Vektor Ponsel Detail</span>
+        <span class="badge-view">Lebar: 375px – 480px</span>
+      </h2>
+      <div class="img-wrap">
+        <img src="sketsa_mobile.svg" alt="Sketsa Wireframe Ponsel TutorCare">
+      </div>
+      <a href="sketsa_mobile.svg" target="_blank" class="btn-download">Buka Full SVG Ponsel ↗</a>
+    </div>
+  </div>
+
+</body>
+</html>

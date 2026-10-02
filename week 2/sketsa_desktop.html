@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sketsa Halaman Utama Desktop - TutorCare (Elemen Semantik HTML5)</title>
+  <style>
+    /* ==========================================================
+       STYLE SKETSA WIREFRAME DESKTOP DENGAN ANOTASI SEMANTIK
+       ========================================================== */
+    :root {
+      --bg-blueprint: #f0f4f8;
+      --wire-border: #64748b;
+      --wire-box-bg: #ffffff;
+      --wire-accent-bg: #f8fafc;
+      --wire-text: #0f172a;
+      --wire-muted: #64748b;
+      
+      /* Warna Label Semantik (Color-coded semantic tags) */
+      --tag-header-bg: #fef08a; --tag-header-border: #ca8a04; --tag-header-text: #854d0e;
+      --tag-nav-bg: #dbeafe;    --tag-nav-border: #3b82f6;    --tag-nav-text: #1e40af;
+      --tag-main-bg: #dcfce7;   --tag-main-border: #22c55e;   --tag-main-text: #15803d;
+      --tag-sec-bg: #f3e8ff;    --tag-sec-border: #a855f7;    --tag-sec-text: #6b21a8;
+      --tag-art-bg: #ffedd5;    --tag-art-border: #f97316;    --tag-art-text: #9a3412;
+      --tag-aside-bg: #cffafe;  --tag-aside-border: #06b6d4;  --tag-aside-text: #0e7490;
+      --tag-foot-bg: #e2e8f0;   --tag-foot-border: #64748b;   --tag-foot-text: #334155;
+      --tag-form-bg: #fee2e2;   --tag-form-border: #ef4444;   --tag-form-text: #991b1b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-blueprint);
+      color: var(--wire-text);
+      line-height: 1.5;
+      padding: 24px;
+    }
+
+    /* Floating Toolbar untuk Pengguna / Dosen */
+    .toolbar-bar {
+      position: sticky;
+      top: 12px;
+      z-index: 1000;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      max-width: 1240px;
+      margin: 0 auto 24px;
+    }
+
+    .toolbar-title {
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-tool {
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+    .btn-tool:hover { background: #1d4ed8; }
+    .btn-tool-secondary { background: #334155; }
+    .btn-tool-secondary:hover { background: #475569; }
+
+    /* Container Blueprint Canvas Desktop */
+    .wireframe-canvas {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 3px dashed #94a3b8;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    /* Badge Tag Semantik Universal */
+    .semantic-badge {
+      display: inline-flex;
+      align-items: center;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      border-width: 1px;
+      border-style: solid;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    }
+    .badge-header { background: var(--tag-header-bg); border-color: var(--tag-header-border); color: var(--tag-header-text); }
+    .badge-nav    { background: var(--tag-nav-bg);    border-color: var(--tag-nav-border);    color: var(--tag-nav-text); }
+    .badge-main   { background: var(--tag-main-bg);   border-color: var(--tag-main-border);   color: var(--tag-main-text); }
+    .badge-sec    { background: var(--tag-sec-bg);    border-color: var(--tag-sec-border);    color: var(--tag-sec-text); }
+    .badge-art    { background: var(--tag-art-bg);    border-color: var(--tag-art-border);    color: var(--tag-art-text); }
+    .badge-aside  { background: var(--tag-aside-bg);  border-color: var(--tag-aside-border);  color: var(--tag-aside-text); }
+    .badge-foot   { background: var(--tag-foot-bg);   border-color: var(--tag-foot-border);   color: var(--tag-foot-text); }
+    .badge-form   { background: var(--tag-form-bg);   border-color: var(--tag-form-border);   color: var(--tag-form-text); }
+
+    /* Kotak-kotak Wireframe */
+    .wire-box {
+      border: 2px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+      position: relative;
+      background-color: var(--wire-box-bg);
+    }
+    .wire-box-dashed {
+      border: 2px dashed #94a3b8;
+    }
+
+    /* 1. TOP BAR */
+    .wf-top-bar {
+      background: #1e293b;
+      color: #f1f5f9;
+      padding: 10px 18px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+
+    /* 2. HEADER & NAV */
+    .wf-header {
+      background: #ffffff;
+      border: 2px solid #3b82f6;
+      border-radius: 8px;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .wf-logo-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .wf-logo-icon {
+      width: 44px;
+      height: 44px;
+      background: #2563eb;
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+    .wf-nav-box {
+      border: 1.5px dashed #3b82f6;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: #eff6ff;
+    }
+    .wf-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+    .wf-nav-links li {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e40af;
+    }
+    .wf-btn-mock {
+      background: #2563eb;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    /* 3. MAIN CONTAINER */
+    .wf-main {
+      border: 2.5px solid #22c55e;
+      border-radius: 10px;
+      padding: 20px;
+      background: #fcfdfc;
+      margin-bottom: 24px;
+    }
+
+    /* SECTION 1: HERO GRID (DESKTOP 2 KOLOM) */
+    .wf-hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+      background: #f0f9ff;
+      border: 2px solid #93c5fd;
+      padding: 24px;
+      border-radius: 10px;
+      margin-bottom: 28px;
+    }
+    .hero-text-col h1 {
+      font-size: 2rem;
+      color: #0f172a;
+      margin: 10px 0;
+      line-height: 1.25;
+    }
+    .hero-text-col p {
+      font-size: 1.05rem;
+      color: #475569;
+      margin-bottom: 16px;
+    }
+    .reassurance-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .reassurance-list li {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #166534;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* FINDER FORM CARD */
+    .wf-finder-card {
+      background: #ffffff;
+      border: 2px solid #ef4444;
+      border-radius: 10px;
+      padding: 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .wf-form-group {
+      margin-bottom: 12px;
+    }
+    .wf-form-group label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+      color: #334155;
+    }
+    .wf-input-mock {
+      width: 100%;
+      height: 40px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      background: #f8fafc;
+      padding: 0 12px;
+      font-size: 0.9rem;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+    }
+    .wf-submit-btn {
+      width: 100%;
+      height: 44px;
+      background: #2563eb;
+      color: white;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    /* SECTION 2: HOW IT WORKS (3 KOLOM DESKTOP) */
+    .wf-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 16px;
+    }
+    .wf-step-card {
+      background: white;
+      border: 2px solid #f97316;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffedd5;
+      color: #c2410c;
+      font-weight: 800;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      border: 2px solid #fdba74;
+    }
+
+    /* SECTION 3: TUTORS GRID (3 KOLOM DESKTOP) */
+    .wf-tutors-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 18px;
+    }
+    .wf-tutor-card {
+      background: #ffffff;
+      border: 2px solid #f97316;
+      border-radius: 8px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tutor-avatar-mock {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #e0f2fe;
+      border: 2px solid #38bdf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    /* EMPATHY BANNER ASIDE */
+    .wf-empathy-aside {
+      background: #1e3a8a;
+      color: white;
+      border: 2px solid #06b6d4;
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* SECTION 4: TESTIMONIALS (3 KOLOM) */
+    .wf-testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 16px;
+    }
+    .wf-testi-card {
+      background: white;
+      border: 2px solid #f97316;
+      border-radius: 8px;
+      padding: 18px;
+      font-style: italic;
+      color: #334155;
+    }
+
+    /* SECTION 5: FAQ & CALLBACK */
+    .wf-faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .wf-faq-item {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 12px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .wf-callback-box {
+      background: #eff6ff;
+      border: 2px dashed #3b82f6;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* 4. FOOTER (4 KOLOM DESKTOP) */
+    .wf-footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      border: 2.5px solid #64748b;
+      border-radius: 10px;
+      padding: 30px 24px 20px;
+    }
+    .wf-footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 24px;
+    }
+    .wf-footer-col h5 {
+      color: white;
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+    }
+    .wf-footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    /* Print View Helper */
+    @media print {
+      body { background: white; padding: 0; }
+      .toolbar-bar { display: none; }
+      .wireframe-canvas { border: none; box-shadow: none; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Action Bar -->
+  <div class="toolbar-bar">
+    <div class="toolbar-title">
+      <span>🖥️</span> 
+      <span>Sketsa Wireframe: Tampilan Desktop (Viewport: 1200px)</span>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn-tool" onclick="window.print()">🖨️ Cetak / Simpan PDF</button>
+      <a href="sketsa_ponsel.html" class="btn-tool btn-tool-secondary">📱 Buka Sketsa Ponsel →</a>
+      <a href="index.html" target="_blank" class="btn-tool btn-tool-secondary">🌐 Lihat Web Asli ↗</a>
+    </div>
+  </div>
+
+  <!-- WIREFRAME CANVAS DESKTOP -->
+  <div class="wireframe-canvas">
+
+    <!-- 1. TOP ANNOUNCEMENT BAR -->
+    <div>
+      <span class="semantic-badge badge-header">&lt;div class="top-bar"&gt;</span>
+      <div class="wf-top-bar">
+        <div>📞 <strong>Toll-Free: 0800-123-4567</strong> | Bantuan Konsultasi Siswa</div>
+        <div>🔍 <strong>[button] Bigger Text Mode</strong> (Aksesibilitas)</div>
+      </div>
+    </div>
+
+    <!-- 2. HEADER & NAVIGATION -->
+    <div>
+      <span class="semantic-badge badge-header">&lt;header&gt;</span>
+      <div class="wf-header">
+        <div class="wf-logo-box">
+          <div class="wf-logo-icon">🎓</div>
+          <div>
+            <h2 style="font-size: 1.3rem; font-weight: 800; color: #0f172a;">TutorCare</h2>
+            <small style="color: #64748b;">Gentle &amp; Patient Learning</small>
+          </div>
+        </div>
+
+        <!-- Semantic NAV -->
+        <div class="wf-nav-box">
+          <span class="semantic-badge badge-nav">&lt;nav&gt;</span>
+          <ul class="wf-nav-links">
+            <li>&lt;li&gt;&lt;a&gt;Find a Tutor&lt;/a&gt;&lt;/li&gt;</li>
+            <li>&lt;li&gt;&lt;a&gt;How It Works&lt;/a&gt;&lt;/li&gt;</li>
+            <li>&lt;li&gt;&lt;a&gt;Experienced Tutors&lt;/a&gt;&lt;/li&gt;</li>
+            <li>&lt;li&gt;&lt;a&gt;Parent FAQ&lt;/a&gt;&lt;/li&gt;</li>
+            <li><span class="wf-btn-mock">&lt;a class="cta"&gt;Start Free Trial →&lt;/a&gt;</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. MAIN CONTENT WRAPPER -->
+    <span class="semantic-badge badge-main">&lt;main&gt;</span>
+    <div class="wf-main">
+
+      <!-- SECTION 1: HERO SECTION (2-KOLOM GRID) -->
+      <div>
+        <span class="semantic-badge badge-sec">&lt;section class="hero-section"&gt;</span>
+        <div class="wf-hero-grid">
+          <!-- Kiri: Hero Text Content -->
+          <div class="hero-text-col">
+            <span style="background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 20px; font-weight: bold; font-size: 0.85rem;">
+              ❤️ Dedicated to students who need extra care
+            </span>
+            <h1>&lt;h1&gt;School feels difficult? We help you understand, without any rush.&lt;/h1&gt;</h1>
+            <p>&lt;p&gt;Everyone learns at their own pace. Certified patient tutors explain step-by-step so students feel confident again.&lt;/p&gt;</p>
+            
+            <ul class="reassurance-list">
+              <li>✓ &lt;li&gt; 100% Patient &amp; Kind Teachers (No scolding, ever) &lt;/li&gt;</li>
+              <li>✓ &lt;li&gt; Free 30-Minute Trial Session with no obligations &lt;/li&gt;</li>
+              <li>✓ &lt;li&gt; Learn from home or online at preferred time &lt;/li&gt;</li>
+            </ul>
+          </div>
+
+          <!-- Kanan: Quick Finder Form Card -->
+          <div>
+            <span class="semantic-badge badge-form">&lt;form id="quickSearchForm" class="finder-card"&gt;</span>
+            <div class="wf-finder-card">
+              <h3 style="font-size: 1.15rem; margin-bottom: 12px; color: #0f172a;">&lt;h2&gt;Find Your Perfect Tutor&lt;/h2&gt;</h3>
+              
+              <div class="wf-form-group">
+                <label>&lt;label&gt; 📚 1. What subject is tricky? &lt;/label&gt;</label>
+                <div class="wf-input-mock">&lt;select&gt; Math, Science, English, etc.</div>
+              </div>
+
+              <div class="wf-form-group">
+                <label>&lt;label&gt; 🎒 2. Student's grade? &lt;/label&gt;</label>
+                <div class="wf-input-mock">&lt;select&gt; Elementary (SD), Middle (SMP), High (SMA)</div>
+              </div>
+
+              <div class="wf-form-group">
+                <label>&lt;label&gt; 🏡 3. Learning mode? &lt;/label&gt;</label>
+                <div class="wf-input-mock">&lt;select&gt; Online Video Call / In-Person Home</div>
+              </div>
+
+              <div class="wf-submit-btn">&lt;button type="submit"&gt; 🔍 Find Friendly Tutors</div>
+              <small style="display: block; text-align: center; margin-top: 10px; color: #64748b;">
+                Prefer a human? &lt;a href="tel:..."&gt;Call Toll-Free&lt;/a&gt;
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: HOW IT WORKS (3-KOLOM GRID) -->
+      <div>
+        <span class="semantic-badge badge-sec">&lt;section id="how-it-works"&gt;</span>
+        <div class="wire-box" style="background: #f8fafc;">
+          <div style="text-align: center; margin-bottom: 16px;">
+            <h2 style="font-size: 1.5rem; color: #0f172a;">&lt;h2&gt;How It Works in 3 Easy Steps&lt;/h2&gt;</h2>
+            <p style="color: #64748b;">&lt;p&gt;No complicated sign-up forms. Straightforward and stress-free.&lt;/p&gt;</p>
+          </div>
+
+          <div class="wf-steps-grid">
+            <!-- Step 1 Article -->
+            <div class="wf-step-card">
+              <span class="semantic-badge badge-art">&lt;article class="step-card"&gt;</span>
+              <div class="step-num">1</div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 8px;">&lt;h3&gt;Pick What You Need&lt;/h3&gt;</h3>
+              <p style="font-size: 0.9rem; color: #475569;">&lt;p&gt;Choose tricky subject. Tell us if student feels shy or needs slow explanation.&lt;/p&gt;</p>
+            </div>
+
+            <!-- Step 2 Article -->
+            <div class="wf-step-card">
+              <span class="semantic-badge badge-art">&lt;article class="step-card"&gt;</span>
+              <div class="step-num">2</div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 8px;">&lt;h3&gt;Meet Tutor For Free&lt;/h3&gt;</h3>
+              <p style="font-size: 0.9rem; color: #475569;">&lt;p&gt;Have a relaxing 30-min intro session to talk and see if tutor is a match.&lt;/p&gt;</p>
+            </div>
+
+            <!-- Step 3 Article -->
+            <div class="wf-step-card">
+              <div class="step-num">3</div>
+              <span class="semantic-badge badge-art">&lt;article class="step-card"&gt;</span>
+              <h3 style="font-size: 1.1rem; margin-bottom: 8px;">&lt;h3&gt;Watch Confidence Grow&lt;/h3&gt;</h3>
+              <p style="font-size: 0.9rem; color: #475569;">&lt;p&gt;Study on regular days with zero pressure. Clear updates after every session.&lt;/p&gt;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: FEATURED TUTORS (3-KOLOM GRID & ASIDE BANNER) -->
+      <div>
+        <span class="semantic-badge badge-sec">&lt;section id="featured-tutors" class="tutors-section"&gt;</span>
+        <div class="wire-box">
+          <div style="text-align: center; margin-bottom: 12px;">
+            <h2 style="font-size: 1.5rem; color: #0f172a;">&lt;h2&gt;Meet Our Most Patient &amp; Friendly Tutors&lt;/h2&gt;</h2>
+            <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
+              <span style="background: #2563eb; color: white; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;">[btn] All Tutors (6)</span>
+              <span style="background: #e2e8f0; color: #334155; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;">[btn] Math</span>
+              <span style="background: #e2e8f0; color: #334155; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;">[btn] Science</span>
+              <span style="background: #e2e8f0; color: #334155; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;">[btn] English</span>
+            </div>
+          </div>
+
+          <div class="wf-tutors-grid">
+            <!-- Tutor Card 1 Article -->
+            <div class="wf-tutor-card">
+              <span class="semantic-badge badge-art">&lt;article class="tutor-card"&gt;</span>
+              <div style="display: flex; gap: 12px; margin-bottom: 10px;">
+                <div class="tutor-avatar-mock">👩‍🏫</div>
+                <div>
+                  <h3 style="font-size: 1.05rem;">&lt;h3&gt;Sarah Jenkins, B.Ed&lt;/h3&gt;</h3>
+                  <small style="color: #166534; font-weight: bold;">✓ Verified • 7 Yrs Math</small>
+                  <div style="color: #f59e0b; font-size: 0.85rem;">★★★★★ 4.9 (112 review)</div>
+                </div>
+              </div>
+              <p style="font-size: 0.85rem; color: #475569; margin-bottom: 10px;">"Fun real-life examples and drawings so students say 'Aha!'..."</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 10px;">
+                <strong>$18 / hr</strong>
+                <span class="wf-btn-mock" style="padding: 6px 12px; font-size: 0.8rem;">&lt;button&gt;Book Trial&lt;/button&gt;</span>
+              </div>
+            </div>
+
+            <!-- Tutor Card 2 Article -->
+            <div class="wf-tutor-card">
+              <span class="semantic-badge badge-art">&lt;article class="tutor-card"&gt;</span>
+              <div style="display: flex; gap: 12px; margin-bottom: 10px;">
+                <div class="tutor-avatar-mock">👨‍🔬</div>
+                <div>
+                  <h3 style="font-size: 1.05rem;">&lt;h3&gt;David Pratama, M.Sc&lt;/h3&gt;</h3>
+                  <small style="color: #166534; font-weight: bold;">✓ Verified • 6 Yrs Physics</small>
+                  <div style="color: #f59e0b; font-size: 0.85rem;">★★★★★ 5.0 (89 review)</div>
+                </div>
+              </div>
+              <p style="font-size: 0.85rem; color: #475569; margin-bottom: 10px;">"Physics is seeing how the world works. Making hard topics simple..."</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 10px;">
+                <strong>$20 / hr</strong>
+                <span class="wf-btn-mock" style="padding: 6px 12px; font-size: 0.8rem;">&lt;button&gt;Book Trial&lt;/button&gt;</span>
+              </div>
+            </div>
+
+            <!-- Tutor Card 3 Article -->
+            <div class="wf-tutor-card">
+              <span class="semantic-badge badge-art">&lt;article class="tutor-card"&gt;</span>
+              <div style="display: flex; gap: 12px; margin-bottom: 10px;">
+                <div class="tutor-avatar-mock">👩‍💼</div>
+                <div>
+                  <h3 style="font-size: 1.05rem;">&lt;h3&gt;Elena Rodriguez&lt;/h3&gt;</h3>
+                  <small style="color: #166534; font-weight: bold;">✓ Verified • 8 Yrs English</small>
+                  <div style="color: #f59e0b; font-size: 0.85rem;">★★★★★ 4.9 (140 review)</div>
+                </div>
+              </div>
+              <p style="font-size: 0.85rem; color: #475569; margin-bottom: 10px;">"Warm space where mistakes are celebrated as progress..."</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 10px;">
+                <strong>$17 / hr</strong>
+                <span class="wf-btn-mock" style="padding: 6px 12px; font-size: 0.8rem;">&lt;button&gt;Book Trial&lt;/button&gt;</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- EMPATHY CALLOUT ASIDE -->
+          <div>
+            <span class="semantic-badge badge-aside" style="margin-top: 20px;">&lt;aside class="empathy-banner"&gt;</span>
+            <div class="wf-empathy-aside">
+              <div>
+                <h3 style="font-size: 1.25rem; margin-bottom: 6px;">&lt;h3&gt;Feeling overwhelmed? You are not alone.&lt;/h3&gt;</h3>
+                <p style="color: #cbd5e1; font-size: 0.95rem;">&lt;p&gt;Every year, 2,000+ students gain confidence. In 4 weeks, 94% raise hands in class.&lt;/p&gt;</p>
+              </div>
+              <div>
+                <span style="background: #22c55e; color: white; padding: 12px 22px; border-radius: 8px; font-weight: bold; white-space: nowrap; display: inline-block;">
+                  &lt;a href="wa.me/..."&gt; 💬 Chat With Our Advisor &lt;/a&gt;
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: TESTIMONIALS (3-KOLOM GRID) -->
+      <div>
+        <span class="semantic-badge badge-sec">&lt;section class="testimonials-section"&gt;</span>
+        <div class="wire-box" style="background: #f1f5f9;">
+          <h2 style="font-size: 1.4rem; text-align: center; margin-bottom: 12px;">&lt;h2&gt;From Struggling to Smiling (Parent &amp; Student Stories)&lt;/h2&gt;</h2>
+          <div class="wf-testi-grid">
+            <div class="wf-testi-card">
+              <span class="semantic-badge badge-art">&lt;article class="testimonial-card"&gt;</span>
+              <p>&lt;blockquote&gt;"My 11yo son cried over Math. Grade went from D to B+, now he smiles!"&lt;/blockquote&gt;</p>
+              <strong style="display: block; margin-top: 10px; font-style: normal; color: #0f172a;">&lt;h4&gt;Mrs. Ratna Sari (Parent)&lt;/h4&gt;</strong>
+            </div>
+
+            <div class="wf-testi-card">
+              <span class="semantic-badge badge-art">&lt;article class="testimonial-card"&gt;</span>
+              <p>&lt;blockquote&gt;"Not good with computers. TutorCare helped me book via phone. Tutor visits Tuesdays."&lt;/blockquote&gt;</p>
+              <strong style="display: block; margin-top: 10px; font-style: normal; color: #0f172a;">&lt;h4&gt;Hendra Wijaya (Parent)&lt;/h4&gt;</strong>
+            </div>
+
+            <div class="wf-testi-card">
+              <span class="semantic-badge badge-art">&lt;article class="testimonial-card"&gt;</span>
+              <p>&lt;blockquote&gt;"Physics felt alien. Kak David used small diagrams. I passed with an A!"&lt;/blockquote&gt;</p>
+              <strong style="display: block; margin-top: 10px; font-style: normal; color: #0f172a;">&lt;h4&gt;Anisa K. (12th Grade)&lt;/h4&gt;</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 5: FAQ & CALLBACK -->
+      <div>
+        <span class="semantic-badge badge-sec">&lt;section id="faq"&gt;</span>
+        <div class="wire-box">
+          <h2 style="font-size: 1.4rem; text-align: center; margin-bottom: 16px;">&lt;h2&gt;Frequently Asked Questions&lt;/h2&gt;</h2>
+          
+          <div class="wf-faq-list">
+            <div class="wf-faq-item">&lt;button class="faq-question"&gt; [+] What if my child is very shy and nervous about learning? &lt;/button&gt;</div>
+            <div class="wf-faq-item">&lt;button class="faq-question"&gt; [+] How does the Free 30-Minute Trial work? &lt;/button&gt;</div>
+            <div class="wf-faq-item">&lt;button class="faq-question"&gt; [+] I am not good with technology. Is it difficult to join? &lt;/button&gt;</div>
+          </div>
+
+          <!-- Callback Box Form -->
+          <div class="wf-callback-box">
+            <span class="semantic-badge badge-form">&lt;form class="callback-form"&gt;</span>
+            <h3 style="font-size: 1.2rem; color: #1e3a8a; margin-bottom: 6px;">&lt;h3&gt;Prefer us to call you on the phone?&lt;/h3&gt;</h3>
+            <p style="color: #475569; font-size: 0.9rem; margin-bottom: 14px;">Leave your phone or WhatsApp below. We'll call within 15 minutes.</p>
+            <div style="display: flex; justify-content: center; gap: 10px; max-width: 500px; margin: 0 auto;">
+              <div class="wf-input-mock" style="flex: 1;">&lt;input type="tel" placeholder="Enter phone/WhatsApp"&gt;</div>
+              <span class="wf-btn-mock" style="white-space: nowrap;">&lt;button&gt;Request Call 📞&lt;/button&gt;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- End of main -->
+
+    <!-- 4. FOOTER (4-KOLOM GRID) -->
+    <div>
+      <span class="semantic-badge badge-foot">&lt;footer&gt;</span>
+      <footer class="wf-footer">
+        <div class="wf-footer-grid">
+          <!-- Col 1 -->
+          <div>
+            <h4 style="color: white; font-size: 1.2rem; margin-bottom: 8px;">&lt;h4&gt;TutorCare&lt;/h4&gt;</h4>
+            <p style="font-size: 0.85rem; line-height: 1.6;">&lt;p&gt;Helping students overcome school difficulties through gentle, experienced 1-on-1 tutoring.&lt;/p&gt;</p>
+            <small style="color: #94a3b8; display: block; margin-top: 10px;">Support: Mon–Sun, 8AM–9PM</small>
+          </div>
+
+          <!-- Col 2 -->
+          <div class="wf-footer-col">
+            <h5>&lt;h5&gt;Subjects&lt;/h5&gt;</h5>
+            <ul>
+              <li>&lt;li&gt;&lt;a&gt;Math &amp; Algebra&lt;/a&gt;&lt;/li&gt;</li>
+              <li>&lt;li&gt;&lt;a&gt;Science &amp; Physics&lt;/a&gt;&lt;/li&gt;</li>
+              <li>&lt;li&gt;&lt;a&gt;English &amp; Reading&lt;/a&gt;&lt;/li&gt;</li>
+              <li>&lt;li&gt;&lt;a&gt;Homework Help&lt;/a&gt;&lt;/li&gt;</li>
+            </ul>
+          </div>
+
+          <!-- Col 3 -->
+          <div class="wf-footer-col">
+            <h5>&lt;h5&gt;About Us&lt;/h5&gt;</h5>
+            <ul>
+              <li>&lt;li&gt;&lt;a&gt;How It Works&lt;/a&gt;&lt;/li&gt;</li>
+              <li>&lt;li&gt;&lt;a&gt;Our Tutors&lt;/a&gt;&lt;/li&gt;</li>
+              <li>&lt;li&gt;&lt;a&gt;Parent FAQ&lt;/a&gt;&lt;/li&gt;</li>
+              <li>&lt;li&gt;&lt;a&gt;Background Checks&lt;/a&gt;&lt;/li&gt;</li>
+            </ul>
+          </div>
+
+          <!-- Col 4 -->
+          <div class="wf-footer-col">
+            <h5>&lt;h5&gt;Direct Contact&lt;/h5&gt;</h5>
+            <ul>
+              <li>📞 &lt;a href="tel:..."&gt;0800-123-4567&lt;/a&gt;</li>
+              <li>💬 &lt;a href="wa.me/..."&gt;WhatsApp CS&lt;/a&gt;</li>
+              <li>✉️ &lt;a href="mailto:..."&gt;help@tutorcare.org&lt;/a&gt;</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="border-top: 1px solid #334155; padding-top: 16px; display: flex; justify-content: space-between; font-size: 0.85rem; color: #94a3b8;">
+          <p>&lt;p&gt;&amp;copy; 2026 TutorCare Education Services. All rights reserved.&lt;/p&gt;</p>
+          <p>A safe, warm, and supportive learning environment for every student.</p>
+        </div>
+      </footer>
+    </div>
+
+  </div><!-- End of Canvas -->
+
+</body>
+</html>
+

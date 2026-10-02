@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BantuBelajar - Solusi Tutor Sabar & Berpengalaman</title>
+  <meta name="description" content="Temukan guru les dan tutor berpengalaman yang sabar mendampingi siswa yang kesulitan belajar. Tampilan modern, sederhana, dan mudah dipahami orang awam.">
+
+  <style>
+    /* ==========================================================
+       MODERN BLUE GRADIENT THEME & DESIGN SYSTEM
+       Sederhana, bersih, modern, dan sangat nyaman untuk orang awam
+       ========================================================== */
+    :root {
+      /* Gradien Biru Utama */
+      --grad-primary: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #0284c7 100%);
+      --grad-primary-hover: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #0369a1 100%);
+      --grad-hero: linear-gradient(180deg, #dbeafe 0%, #eff6ff 45%, #f8fafc 100%);
+      --grad-banner: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #2563eb 100%);
+      --grad-card-header: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
+      --grad-accent: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
+      --grad-badge: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+
+      /* Warna Padat */
+      --blue-deep: #1e3a8a;
+      --blue-primary: #2563eb;
+      --blue-light: #60a5fa;
+      --blue-subtle: #f0f7ff;
+      --teal-accent: #0284c7;
+
+      --text-dark: #0f172a;       /* Kontras tinggi agar mudah dibaca */
+      --text-muted: #334155;      /* Abu-abu tua jelas */
+      --text-light: #64748b;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border-card: #e2e8f0;
+      --border-blue: #bfdbfe;
+
+      /* Bayangan Halus Modern (Blue Tint Shadow) */
+      --shadow-sm: 0 2px 6px rgba(37, 99, 235, 0.06);
+      --shadow-md: 0 8px 20px rgba(37, 99, 235, 0.08);
+      --shadow-lg: 0 16px 36px rgba(37, 99, 235, 0.14);
+      --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.35);
+
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --font-base: 18px;          /* Ukuran teks default ramah mata */
+    }
+
+    /* Mode Perbesar Tulisan untuk Orang Tua / Penglihatan Kurang Awas */
+    body.teks-besar {
+      --font-base: 21px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: var(--font-base);
+      line-height: 1.65;
+      color: var(--text-dark);
+      background-color: var(--bg-page);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--blue-primary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ==========================================================
+       BAR BANTUAN CEPAT (GRADIENT PALING ATAS)
+       ========================================================== */
+    .top-bar-modern {
+      background: linear-gradient(90deg, #0f172a 0%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 12px 0;
+      font-size: 0.95rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .top-bar-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-weight: 500;
+    }
+
+    .pill-call-free {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      color: #ffffff;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(34, 197, 94, 0.35);
+      text-decoration: none;
+    }
+
+    .pill-call-free:hover {
+      background: #15803d;
+      text-decoration: none;
+    }
+
+    .btn-font-toggle {
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .btn-font-toggle:hover {
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    /* ==========================================================
+       HEADER & NAVIGASI BERGAYA GLASS & GRADIENT
+       ========================================================== */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--border-blue);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .navbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .logo-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .logo-badge-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--grad-primary);
+      color: #ffffff;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+      transform: rotate(-2deg);
+    }
+
+    .logo-label h1 {
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-label h1 span {
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-label p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 18px;
+    }
+
+    .nav-item-link {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1e293b;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s;
+    }
+
+    .nav-item-link:hover {
+      background: var(--blue-subtle);
+      color: var(--blue-primary);
+      text-decoration: none;
+    }
+
+    .btn-nav-gradient {
+      background: var(--grad-primary);
+      color: #ffffff !important;
+      font-weight: 800;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-nav-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+      text-decoration: none;
+    }
+
+    /* ==========================================================
+       HERO SECTION DENGAN GRADASI BIRU SEGAR
+       ========================================================== */
+    .hero-wrapper {
+      background: var(--grad-hero);
+      padding: 70px 0 55px;
+      position: relative;
+      border-bottom: 1px solid var(--border-blue);
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .badge-modern-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      color: #1e40af;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 22px;
+      border: 2px solid #bfdbfe;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-main-title {
+      font-size: 2.85rem;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .gradient-text-blue {
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .hero-paragraph {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .hero-point-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .point-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .point-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--grad-primary);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    /* KOTAK PENCARIAN MODERN (3 KLIK MUDAH) */
+    .search-card-modern {
+      background: #ffffff;
+      border: 3px solid var(--border-blue);
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .search-card-modern::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--grad-primary);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+
+    .search-card-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .search-card-header h2 {
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+
+    .search-card-header p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+
+    .form-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .input-group-modern {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .input-group-modern label {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .select-modern {
+      height: 54px;
+      padding: 0 16px;
+      border: 2px solid #cbd5e1;
+      border-radius: var(--radius-md);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0f172a;
+      background-color: #f8fafc;
+      transition: all 0.2s;
+    }
+
+    .select-modern:focus {
+      outline: none;
+      border-color: var(--blue-primary);
+      background-color: #ffffff;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+    }
+
+    .btn-gradient-search {
+      height: 58px;
+      background: var(--grad-primary);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 1.25rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+      margin-top: 10px;
+      transition: all 0.2s;
+    }
+
+    .btn-gradient-search:hover {
+      background: var(--grad-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45);
+    }
+
+    .search-helper-footer {
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 16px;
+    }
+
+    .search-helper-footer a {
+      font-weight: 800;
+      color: var(--blue-deep);
+    }
+
+    /* ==========================================================
+       CARA KERJA 3 LANGKAH DENGAN LINGKARAN GRADASI
+       ========================================================== */
+    .section-padding {
+      padding: 75px 0;
+    }
+
+    .section-heading-box {
+      text-align: center;
+      max-width: 740px;
+      margin: 0 auto 50px;
+    }
+
+    .pill-section-tag {
+      display: inline-block;
+      background: var(--grad-badge);
+      color: #1e3a8a;
+      padding: 6px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      border: 1px solid #93c5fd;
+    }
+
+    .section-title-large {
+      font-size: 2.35rem;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle-text {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    .steps-grid-modern {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .step-card-modern {
+      background: #ffffff;
+      border: 2px solid var(--border-blue);
+      border-radius: var(--radius-lg);
+      padding: 36px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+
+    .step-card-modern:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: #60a5fa;
+    }
+
+    .step-number-circle {
+      width: 64px;
+      height: 64px;
+      background: var(--grad-primary);
+      color: #ffffff;
+      border-radius: 50%;
+      font-size: 1.75rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+    }
+
+    .step-card-modern h3 {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: #0f172a;
+      margin-bottom: 12px;
+    }
+
+    .step-card-modern p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================
+       DAFTAR TUTOR BERPENGALAMAN & KARTU MODERN
+       ========================================================== */
+    .tutor-section-modern {
+      background: #ffffff;
+      border-top: 2px solid var(--border-blue);
+      border-bottom: 2px solid var(--border-blue);
+    }
+
+    /* Filter Pills */
+    .filter-row-modern {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 42px;
+    }
+
+    .filter-btn-pill {
+      background: #f1f5f9;
+      border: 2px solid #cbd5e1;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #334155;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn-pill:hover {
+      background: #e2e8f0;
+      border-color: #94a3b8;
+    }
+
+    .filter-btn-pill.active {
+      background: var(--grad-primary);
+      border-color: transparent;
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
+    }
+
+    /* Grid Kartu Tutor */
+    .tutors-modern-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 30px;
+    }
+
+    .tutor-card-clean {
+      background: #ffffff;
+      border: 2px solid var(--border-blue);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .tutor-card-clean:hover {
+      transform: translateY(-5px);
+      border-color: #3b82f6;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .tutor-head-flex {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+
+    .tutor-avatar-img {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #60a5fa;
+      background: #dbeafe;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+    }
+
+    .tutor-info-meta h3 {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-terverifikasi {
+      background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+      color: #166534;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      border: 1px solid #86efac;
+    }
+
+    .tutor-experience-txt {
+      font-size: 0.95rem;
+      color: #1e40af;
+      font-weight: 700;
+      margin-top: 3px;
+    }
+
+    .tutor-rating-flex {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      font-size: 0.95rem;
+    }
+
+    .stars-icon {
+      color: #eab308;
+      font-weight: 900;
+      font-size: 1.1rem;
+    }
+
+    .score-txt {
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .count-txt {
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    /* Tag Keahlian */
+    .tutor-tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .tag-blue-soft {
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #bfdbfe;
+    }
+
+    .tag-yellow-soft {
+      background: #fefce8;
+      color: #a16207;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #fef08a;
+    }
+
+    .tutor-quote-gradient {
+      background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%);
+      border-left: 4px solid var(--blue-primary);
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 1.05rem;
+      color: #1e293b;
+      line-height: 1.55;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .tutor-footer-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 2px solid #f1f5f9;
+      padding-top: 18px;
+      margin-top: auto;
+    }
+
+    .rate-label-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .rate-small {
+      font-size: 0.85rem;
+      color: #64748b;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .rate-price {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #0f172a;
+    }
+
+    .btn-card-trial {
+      background: var(--grad-primary);
+      color: #ffffff;
+      border: none;
+      padding: 12px 22px;
+      border-radius: var(--radius-full);
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+      transition: all 0.2s;
+    }
+
+    .btn-card-trial:hover {
+      background: var(--grad-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+    }
+
+    /* ==========================================================
+       BANNER EMPATI GRADASI BIRU TUA
+       ========================================================== */
+    .banner-gradient-empati {
+      background: var(--grad-banner);
+      color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 45px 40px;
+      margin-top: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .empati-text-area {
+      max-width: 660px;
+    }
+
+    .empati-text-area h3 {
+      font-size: 2.1rem;
+      font-weight: 900;
+      margin-bottom: 14px;
+      color: #ffffff;
+    }
+
+    .empati-text-area p {
+      font-size: 1.2rem;
+      color: #e2e8f0;
+      line-height: 1.65;
+    }
+
+    .empati-button-area {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 270px;
+    }
+
+    .btn-wa-gradient {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      color: #ffffff !important;
+      font-size: 1.2rem;
+      font-weight: 900;
+      padding: 16px 24px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 6px 18px rgba(34, 197, 94, 0.4);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-wa-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(34, 197, 94, 0.5);
+      text-decoration: none;
+    }
+
+    /* ==========================================================
+       TESTIMONI BERSIH & MODERN
+       ========================================================== */
+    .testimonial-modern-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 26px;
+    }
+
+    .testimoni-card-clean {
+      background: #ffffff;
+      border: 2px solid var(--border-blue);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .testimoni-card-clean::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--grad-primary);
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+    }
+
+    .quote-content {
+      font-size: 1.1rem;
+      color: #1e293b;
+      line-height: 1.65;
+      margin-bottom: 22px;
+      font-style: italic;
+    }
+
+    .author-modern {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .author-badge-circle {
+      width: 52px;
+      height: 52px;
+      background: var(--grad-badge);
+      color: #1e40af;
+      font-weight: 900;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      border: 2px solid #bfdbfe;
+    }
+
+    .author-details h4 {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #0f172a;
+    }
+
+    .author-details p {
+      font-size: 0.92rem;
+      color: #64748b;
+    }
+
+    /* ==========================================================
+       TANYA JAWAB (FAQ ACCORDION) RAMAH AWAM
+       ========================================================== */
+    .faq-wrapper-modern {
+      max-width: 840px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item-modern {
+      background: #ffffff;
+      border: 2px solid var(--border-blue);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question-btn {
+      width: 100%;
+      text-align: left;
+      padding: 22px 26px;
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #0f172a;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .faq-question-btn:hover {
+      background: var(--blue-subtle);
+    }
+
+    .faq-arrow-icon {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--blue-primary);
+      transition: transform 0.25s ease;
+    }
+
+    .faq-answer-modern {
+      padding: 0 26px 24px;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      display: none;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 18px;
+    }
+
+    .faq-item-modern.terbuka .faq-answer-modern {
+      display: block;
+    }
+
+    .faq-item-modern.terbuka .faq-arrow-icon {
+      transform: rotate(45deg);
+    }
+
+    /* ==========================================================
+       KOTAK MINTA TELEPON BALIK (UNTUK YANG GAPTEK)
+       ========================================================== */
+    .callback-gradient-box {
+      background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%);
+      border: 3px dashed #93c5fd;
+      border-radius: var(--radius-lg);
+      padding: 44px 32px;
+      text-align: center;
+      max-width: 840px;
+      margin: 50px auto 0;
+    }
+
+    .callback-gradient-box h3 {
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: #1e3a8a;
+      margin-bottom: 10px;
+    }
+
+    .callback-gradient-box p {
+      font-size: 1.15rem;
+      color: #334155;
+      margin-bottom: 24px;
+    }
+
+    .callback-form-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .callback-input {
+      flex: 1 1 260px;
+      height: 54px;
+      padding: 0 18px;
+      border: 2px solid #94a3b8;
+      border-radius: var(--radius-md);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .btn-callback-action {
+      background: var(--grad-primary);
+      color: #ffffff;
+      border: none;
+      padding: 0 30px;
+      height: 54px;
+      border-radius: var(--radius-md);
+      font-size: 1.15rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+      transition: background 0.2s;
+    }
+
+    .btn-callback-action:hover {
+      background: var(--grad-primary-hover);
+    }
+
+    /* ==========================================================
+       FOOTER MODERN & RAMAH
+       ========================================================== */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 65px 0 32px;
+      border-top: 1px solid #1e293b;
+      margin-top: 70px;
+    }
+
+    .footer-grid-modern {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col-about h4 {
+      color: #ffffff;
+      font-size: 1.55rem;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .footer-col-about p {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .footer-nav-col h5 {
+      color: #ffffff;
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .footer-link-group {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-link-group a {
+      color: #cbd5e1;
+      font-size: 1.02rem;
+    }
+
+    .footer-link-group a:hover {
+      color: #60a5fa;
+    }
+
+    .footer-copyright {
+      border-top: 1px solid #1e293b;
+      padding-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+      gap: 12px;
+    }
+
+    /* ==========================================================
+       MODAL POPUP PESAN KELAS UJI COBA
+       ========================================================== */
+    .modal-shade {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(5px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-shade.aktif {
+      display: flex;
+    }
+
+    .modal-box-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 530px;
+      padding: 36px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      position: relative;
+      border-top: 6px solid var(--blue-primary);
+    }
+
+    .btn-close-modal {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: #f1f5f9;
+      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 1.35rem;
+      font-weight: bold;
+      color: #475569;
+      cursor: pointer;
+    }
+
+    .btn-close-modal:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .modal-heading-area h3 {
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+
+    .modal-heading-area p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    .modal-form-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Notifikasi Pop-up (Toast) */
+    .toast-modern {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 16px 24px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      display: none;
+      align-items: center;
+      gap: 12px;
+      z-index: 2000;
+      border-left: 6px solid #22c55e;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    /* ==========================================================
+       RESPONSIVE DESIGN (HP & TABLET)
+       ========================================================== */
+    @media (max-width: 900px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .steps-grid-modern {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid-modern {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-main-title {
+        font-size: 2.2rem;
+      }
+      .nav-list {
+        display: none;
+      }
+      .footer-grid-modern {
+        grid-template-columns: 1fr;
+      }
+      .top-bar-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================
+       BAR BANTUAN CEPAT DI PALING ATAS
+       ========================================================== -->
+  <div class="top-bar-modern">
+    <div class="container top-bar-content">
+      <div class="top-bar-left">
+        <span>Anak kesulitan memahami pelajaran di sekolah?</span>
+        <a href="tel:08001234567" class="pill-call-free">
+          <span>📞</span> Bebas Pulsa: 0800-123-4567
+        </a>
+      </div>
+      <div>
+        <button class="btn-font-toggle" id="btnToggleFont" title="Klik untuk memperbesar atau mengecilkan tulisan">
+          <span>🔍</span> <strong>Perbesar Tulisan</strong>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       HEADER & NAVIGASI BERGRADASI BIRU
+       ========================================================== -->
+  <header>
+    <div class="container navbar-inner">
+      <a href="#" class="logo-brand">
+        <div class="logo-badge-icon">
+          <!-- Ikon Topi & Buku -->
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <div class="logo-label">
+          <h1>Bantu<span>Belajar</span></h1>
+          <p>Tutor Sabar & Mengerti Anak</p>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-list">
+          <li><a href="#cari-guru" class="nav-item-link">Cari Tutor</a></li>
+          <li><a href="#cara-kerja" class="nav-item-link">Cara Kerja</a></li>
+          <li><a href="#tutor-berpengalaman" class="nav-item-link">Daftar Guru</a></li>
+          <li><a href="#tanya-jawab" class="nav-item-link">Tanya Jawab</a></li>
+          <li>
+            <a href="#cari-guru" class="btn-nav-gradient">
+              <span>Coba Gratis 30 Menit</span>
+              <span>→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================
+         HERO SECTION: LATAR GRADASI BIRU SEGAR
+         ========================================================== -->
+    <section class="hero-wrapper">
+      <div class="container hero-layout">
+
+        <div class="hero-text-col">
+          <div class="badge-modern-pill">
+            <span>💙</span> Khusus untuk siswa yang butuh bimbingan pelan-pelan
+          </div>
+          <h2 class="hero-main-title">
+            Pelajaran terasa sulit? <br>
+            <span class="gradient-text-blue">Kami dampingi sampai paham,</span> tanpa dimarahi.
+          </h2>
+          <p class="hero-paragraph">
+            Setiap anak memiliki kecepatan belajar masing-masing. Guru kami berpengalaman, ramah, dan siap menjelaskan materi sulit dengan cara santai dan mudah dimengerti oleh siapa saja.
+          </p>
+
+          <div class="hero-point-list">
+            <div class="point-item">
+              <span class="point-icon">✓</span>
+              <span>Guru Sabar & Telaten (Tidak ada kata membentak)</span>
+            </div>
+            <div class="point-item">
+              <span class="point-icon">✓</span>
+              <span>Sesi Uji Coba Gratis 30 Menit tanpa biaya apapun</span>
+            </div>
+            <div class="point-item">
+              <span class="point-icon">✓</span>
+              <span>Bisa Guru Datang ke Rumah atau Les Online Praktis</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- KOTAK PENCARIAN GURU DENGAN GRADASI BIRU -->
+        <div class="search-card-modern" id="cari-guru">
+          <div class="search-card-header">
+            <h2>Temukan Tutor yang Cocok</h2>
+            <p>Pilih dalam 3 langkah mudah berikut:</p>
+          </div>
+
+          <form class="form-stack" id="formCariTutor" onsubmit="event.preventDefault(); lakukanPencarian();">
+            <div class="input-group-modern">
+              <label for="pilihanMataPelajaran">
+                <span>📚</span> 1. Pelajaran apa yang sulit?
+              </label>
+              <select id="pilihanMataPelajaran" class="select-modern">
+                <option value="semua">Semua Mata Pelajaran</option>
+                <option value="matematika">Matematika & Berhitung</option>
+                <option value="ipa">IPA (Fisika, Kimia, Biologi)</option>
+                <option value="inggris">Bahasa Inggris & Membaca</option>
+                <option value="pr">Bantuan Semua PR Sekolah (Tematik)</option>
+              </select>
+            </div>
+
+            <div class="input-group-modern">
+              <label for="pilihanJenjang">
+                <span>🎒</span> 2. Tingkat kelas berapa?
+              </label>
+              <select id="pilihanJenjang" class="select-modern">
+                <option value="semua">Semua Tingkat Kelas</option>
+                <option value="sd">Sekolah Dasar (SD / MI)</option>
+                <option value="smp">SMP / MTs</option>
+                <option value="sma">SMA / SMK / MA</option>
+              </select>
+            </div>
+
+            <div class="input-group-modern">
+              <label for="pilihanMetode">
+                <span>🏡</span> 3. Mau belajar di mana?
+              </label>
+              <select id="pilihanMetode" class="select-modern">
+                <option value="online">Les Online (Tinggal klik link di WhatsApp)</option>
+                <option value="rumah">Guru Datang Langsung ke Rumah</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-gradient-search">
+              <span>🔍 Lihat Tutor yang Tersedia</span>
+            </button>
+          </form>
+
+          <p class="search-helper-footer">
+            Bingung atau tidak terbiasa mengisi di layar? <br>
+            <a href="tel:08001234567"><strong>Hubungi kami lewat telepon langsung</strong></a>, kami pilihkan guru yang ramah.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         CARA KERJA 3 LANGKAH
+         ========================================================== -->
+    <section class="section-padding" id="cara-kerja">
+      <div class="container">
+        <div class="section-heading-box">
+          <span class="pill-section-tag">Sangat Sederhana</span>
+          <h2 class="section-title-large">3 Langkah Mudah Mulai Belajar</h2>
+          <p class="section-subtitle-text">Tidak perlu membuat akun berbelit-belit atau mengunduh aplikasi rumit.</p>
+        </div>
+
+        <div class="steps-grid-modern">
+          <div class="step-card-modern">
+            <div class="step-number-circle">1</div>
+            <h3>Pilih Pelajaran</h3>
+            <p>Tentukan pelajaran apa yang membuat anak bingung atau sering mendapat nilai kurang memuaskan di sekolah.</p>
+          </div>
+
+          <div class="step-card-modern">
+            <div class="step-number-circle">2</div>
+            <h3>Kenalan Gratis 30 Menit</h3>
+            <p>Ngobrol santai bersama guru pilihan tanpa dipungut biaya. Pastikan anak merasa nyaman dan tidak cemas.</p>
+          </div>
+
+          <div class="step-card-modern">
+            <div class="step-number-circle">3</div>
+            <h3>Belajar dengan Tenang</h3>
+            <p>Mulai jadwal belajar teratur. Anak tidak lagi takut PR dan orang tua mendapat laporan perkembangan berkala.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         DAFTAR TUTOR BERPENGALAMAN & KARTU MODERN
+         ========================================================== -->
+    <section class="section-padding tutor-section-modern" id="tutor-berpengalaman">
+      <div class="container">
+        <div class="section-heading-box">
+          <span class="pill-section-tag">Tutor Terpilih</span>
+          <h2 class="section-title-large">Profil Tutor Berpengalaman & Sabar</h2>
+          <p class="section-subtitle-text">
+            Seluruh guru telah lulus seleksi ketat, verifikasi identitas resmi, dan memiliki pengalaman bertahun-tahun mendampingi siswa yang kesulitan.
+          </p>
+        </div>
+
+        <!-- Tombol Filter Cepat -->
+        <div class="filter-row-modern">
+          <button class="filter-btn-pill active" data-kat="semua" onclick="filterKategori('semua', this)">Semua Tutor (6)</button>
+          <button class="filter-btn-pill" data-kat="matematika" onclick="filterKategori('matematika', this)">Spesialis Matematika</button>
+          <button class="filter-btn-pill" data-kat="ipa" onclick="filterKategori('ipa', this)">Spesialis IPA & Fisika</button>
+          <button class="filter-btn-pill" data-kat="inggris" onclick="filterKategori('inggris', this)">Bahasa Inggris</button>
+        </div>
+
+        <!-- Grid Kartu Tutor -->
+        <div class="tutors-modern-grid" id="wadahKartuTutor">
+
+          <!-- Tutor 1: Kak Sarah (Matematika) -->
+          <article class="tutor-card-clean" data-pelajaran="matematika">
+            <div>
+              <div class="tutor-head-flex">
+                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=160&q=80" alt="Foto Kak Sarah" class="tutor-avatar-img">
+                <div class="tutor-info-meta">
+                  <h3>
+                    Kak Sarah, S.Pd.
+                    <span class="badge-terverifikasi">✓ Terverifikasi</span>
+                  </h3>
+                  <p class="tutor-experience-txt">🎓 7 Tahun Mengajar Matematika</p>
+                  <div class="tutor-rating-flex">
+                    <span class="stars-icon">★★★★★</span>
+                    <span class="score-txt">4.9</span>
+                    <span class="count-txt">(112 ulasan puas)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tutor-tags-container">
+                <span class="tag-blue-soft">Matematika SD & SMP</span>
+                <span class="tag-blue-soft">Aljabar & Pecahan</span>
+                <span class="tag-yellow-soft">💛 Penjelasan Bergambar</span>
+              </div>
+
+              <div class="tutor-quote-gradient">
+                "Banyak anak mengira matematika itu seram karena rumus yang rumit. Saya mengajar menggunakan gambar warna-warni dan contoh sehari-hari sampai anak berkata 'Oh, ternyata gampang!'"
+              </div>
+            </div>
+
+            <div class="tutor-footer-action">
+              <div class="rate-label-box">
+                <span class="rate-small">Tarif Sesi</span>
+                <span class="rate-price">Rp 75.000 / jam</span>
+              </div>
+              <button class="btn-card-trial" onclick="bukaModal('Kak Sarah, S.Pd.', 'Matematika SD/SMP')">Coba Gratis 30 Menit</button>
+            </div>
+          </article>
+
+          <!-- Tutor 2: Kak David (Fisika & IPA) -->
+          <article class="tutor-card-clean" data-pelajaran="ipa">
+            <div>
+              <div class="tutor-head-flex">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80" alt="Foto Kak David" class="tutor-avatar-img">
+                <div class="tutor-info-meta">
+                  <h3>
+                    Kak David, M.Si.
+                    <span class="badge-terverifikasi">✓ Terverifikasi</span>
+                  </h3>
+                  <p class="tutor-experience-txt">🔬 6 Tahun Pengalaman IPA/Fisika</p>
+                  <div class="tutor-rating-flex">
+                    <span class="stars-icon">★★★★★</span>
+                    <span class="score-txt">5.0</span>
+                    <span class="count-txt">(89 ulasan puas)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tutor-tags-container">
+                <span class="tag-blue-soft">Fisika & Kimia SMP/SMA</span>
+                <span class="tag-blue-soft">IPA Terpadu</span>
+                <span class="tag-yellow-soft">💡 Logika Bertahap</span>
+              </div>
+
+              <div class="tutor-quote-gradient">
+                "Fisika bukan hafalan rumus mati. Saya ajak siswa memahami konsep di balik rumus tersebut, sehingga soal ujian tipe apapun bisa dikerjakan dengan tenang dan percaya diri."
+              </div>
+            </div>
+
+            <div class="tutor-footer-action">
+              <div class="rate-label-box">
+                <span class="rate-small">Tarif Sesi</span>
+                <span class="rate-price">Rp 85.000 / jam</span>
+              </div>
+              <button class="btn-card-trial" onclick="bukaModal('Kak David, M.Si.', 'IPA & Fisika')">Coba Gratis 30 Menit</button>
+            </div>
+          </article>
+
+          <!-- Tutor 3: Kak Elena (Bahasa Inggris) -->
+          <article class="tutor-card-clean" data-pelajaran="inggris">
+            <div>
+              <div class="tutor-head-flex">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&q=80" alt="Foto Kak Elena" class="tutor-avatar-img">
+                <div class="tutor-info-meta">
+                  <h3>
+                    Kak Elena, S.Li.
+                    <span class="badge-terverifikasi">✓ Terverifikasi</span>
+                  </h3>
+                  <p class="tutor-experience-txt">📖 8 Tahun Mengajar Bhs Inggris</p>
+                  <div class="tutor-rating-flex">
+                    <span class="stars-icon">★★★★★</span>
+                    <span class="score-txt">4.9</span>
+                    <span class="count-txt">(140 ulasan puas)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tutor-tags-container">
+                <span class="tag-blue-soft">Bahasa Inggris Sekolah</span>
+                <span class="tag-blue-soft">Grammar & Reading</span>
+                <span class="tag-yellow-soft">🗣️ Latihan Santai & Tanpa Malu</span>
+              </div>
+
+              <div class="tutor-quote-gradient">
+                "Anak sering minder dan malu bicara bahasa Inggris karena takut salah. Bersama saya, setiap kesalahan justru diapresiasi sebagai tanda bahwa anak sedang berkembang."
+              </div>
+            </div>
+
+            <div class="tutor-footer-action">
+              <div class="rate-label-box">
+                <span class="rate-small">Tarif Sesi</span>
+                <span class="rate-price">Rp 75.000 / jam</span>
+              </div>
+              <button class="btn-card-trial" onclick="bukaModal('Kak Elena, S.Li.', 'Bahasa Inggris')">Coba Gratis 30 Menit</button>
+            </div>
+          </article>
+
+          <!-- Tutor 4: Pak Budi (Guru SD & Pendamping PR) -->
+          <article class="tutor-card-clean" data-pelajaran="matematika">
+            <div>
+              <div class="tutor-head-flex">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80" alt="Foto Pak Budi" class="tutor-avatar-img">
+                <div class="tutor-info-meta">
+                  <h3>
+                    Pak Budi, S.Pd.SD
+                    <span class="badge-terverifikasi">✓ Terverifikasi</span>
+                  </h3>
+                  <p class="tutor-experience-txt">📐 10 Tahun Guru Kelas SD</p>
+                  <div class="tutor-rating-flex">
+                    <span class="stars-icon">★★★★★</span>
+                    <span class="score-txt">4.8</span>
+                    <span class="count-txt">(95 ulasan puas)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tutor-tags-container">
+                <span class="tag-blue-soft">Semua Pelajaran SD</span>
+                <span class="tag-blue-soft">Bimbingan PR Harian</span>
+                <span class="tag-yellow-soft">🌟 Menyenangkan & Sabar</span>
+              </div>
+
+              <div class="tutor-quote-gradient">
+                "Khusus untuk anak SD yang sering rewel atau menangis saat waktu PR tiba. Suasana belajar saya ubah menjadi waktu bermain yang mengasah rasa ingin tahu."
+              </div>
+            </div>
+
+            <div class="tutor-footer-action">
+              <div class="rate-label-box">
+                <span class="rate-small">Tarif Sesi</span>
+                <span class="rate-price">Rp 65.000 / jam</span>
+              </div>
+              <button class="btn-card-trial" onclick="bukaModal('Pak Budi, S.Pd.SD', 'Bimbingan PR SD')">Coba Gratis 30 Menit</button>
+            </div>
+          </article>
+
+          <!-- Tutor 5: Bu Clara (Biologi & Sains) -->
+          <article class="tutor-card-clean" data-pelajaran="ipa">
+            <div>
+              <div class="tutor-head-flex">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=160&q=80" alt="Foto Ibu Clara" class="tutor-avatar-img">
+                <div class="tutor-info-meta">
+                  <h3>
+                    Ibu Clara, S.Si.
+                    <span class="badge-terverifikasi">✓ Terverifikasi</span>
+                  </h3>
+                  <p class="tutor-experience-txt">🌿 5 Tahun Spesialis Biologi</p>
+                  <div class="tutor-rating-flex">
+                    <span class="stars-icon">★★★★★</span>
+                    <span class="score-txt">4.9</span>
+                    <span class="count-txt">(72 ulasan puas)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tutor-tags-container">
+                <span class="tag-blue-soft">Biologi & Sains Terapan</span>
+                <span class="tag-blue-soft">Persiapan Ujian Akhir</span>
+                <span class="tag-yellow-soft">🎨 Peta Konsep Ringkas</span>
+              </div>
+
+              <div class="tutor-quote-gradient">
+                "Banyak istilah sains yang bikin pusing. Saya membuatkan bagan visual dan rangkuman sederhana sehingga materi tebal bisa dipahami dengan cepat."
+              </div>
+            </div>
+
+            <div class="tutor-footer-action">
+              <div class="rate-label-box">
+                <span class="rate-small">Tarif Sesi</span>
+                <span class="rate-price">Rp 80.000 / jam</span>
+              </div>
+              <button class="btn-card-trial" onclick="bukaModal('Ibu Clara, S.Si.', 'Biologi & Sains')">Coba Gratis 30 Menit</button>
+            </div>
+          </article>
+
+          <!-- Tutor 6: Kak Marcus (Bahasa Inggris & Minat Baca) -->
+          <article class="tutor-card-clean" data-pelajaran="inggris">
+            <div>
+              <div class="tutor-head-flex">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80" alt="Foto Kak Marcus" class="tutor-avatar-img">
+                <div class="tutor-info-meta">
+                  <h3>
+                    Kak Marcus, M.A.
+                    <span class="badge-terverifikasi">✓ Terverifikasi</span>
+                  </h3>
+                  <p class="tutor-experience-txt">✍️ 9 Tahun Guru Bahasa Asing</p>
+                  <div class="tutor-rating-flex">
+                    <span class="stars-icon">★★★★★</span>
+                    <span class="score-txt">5.0</span>
+                    <span class="count-txt">(165 ulasan puas)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tutor-tags-container">
+                <span class="tag-blue-soft">Pemahaman Membaca (Reading)</span>
+                <span class="tag-blue-soft">Percakapan Sehari-hari</span>
+                <span class="tag-yellow-soft">🧩 Metode Bercerita</span>
+              </div>
+
+              <div class="tutor-quote-gradient">
+                "Belajar bahasa Inggris tidak boleh menjemukan. Kita perkaya kosakata melalui cerita seru yang membuat anak penasaran membuka halaman berikutnya."
+              </div>
+            </div>
+
+            <div class="tutor-footer-action">
+              <div class="rate-label-box">
+                <span class="rate-small">Tarif Sesi</span>
+                <span class="rate-price">Rp 90.000 / jam</span>
+              </div>
+              <button class="btn-card-trial" onclick="bukaModal('Kak Marcus, M.A.', 'Bahasa Inggris & Reading')">Coba Gratis 30 Menit</button>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Banner Empati Bergradasi Biru -->
+        <div class="banner-gradient-empati">
+          <div class="empati-text-area">
+            <h3>Merasa cemas atau tertinggal di kelas?</h3>
+            <p>
+              Bukan berarti anak tidak pintar, melainkan hanya butuh bimbingan yang lebih sabar dan metode yang tepat. Lebih dari 1.800 siswa berhasil meningkatkan rasa percaya diri dan nilainya bersama kami.
+            </p>
+          </div>
+          <div class="empati-button-area">
+            <a href="https://wa.me/6281234567890" target="_blank" class="btn-wa-gradient">
+              <span>💬</span> Hubungi Kami via WhatsApp
+            </a>
+            <small style="color: #bfdbfe; text-align: center;">Respon ramah • Tanya gratis • Tanpa paksaan</small>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         TESTIMONI ORANG TUA (BERSIH & ELEGAN)
+         ========================================================== -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-heading-box">
+          <span class="pill-section-tag">Cerita Nyata</span>
+          <h2 class="section-title-large">Dari Menangis Karena PR, Jadi Semangat Belajar</h2>
+          <p class="section-subtitle-text">Pengalaman nyata dari orang tua dan siswa yang menemukan kembali keceriaan belajarnya.</p>
+        </div>
+
+        <div class="testimonial-modern-grid">
+          <div class="testimoni-card-clean">
+            <p class="quote-content">
+              "Anak saya kelas 5 SD setiap malam menangis kalau ada PR matematika. Kami orang tua juga bingung cara mengajarkannya. Alhamdulillah Kak Sarah sabar sekali. Sekarang anak saya tidak pernah menangis lagi saat belajar dan nilainya naik drastis."
+            </p>
+            <div class="author-modern">
+              <div class="author-badge-circle">RD</div>
+              <div class="author-details">
+                <h4>Ibu Ratna Dewi</h4>
+                <p>Orang Tua Siswa Kelas 5 SD</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimoni-card-clean">
+            <p class="quote-content">
+              "Saya orang tua yang kurang paham aplikasi komputer yang rumit. Untung tim BantuBelajar sangat ramah, saya cukup telepon lalu guru datang ke rumah. Pak Budi sangat sopan dan anak saya sangat cocok belajarnya."
+            </p>
+            <div class="author-modern">
+              <div class="author-badge-circle">HW</div>
+              <div class="author-details">
+                <h4>Pak Hendra Wijaya</h4>
+                <p>Orang Tua Siswa SMP</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimoni-card-clean">
+            <p class="quote-content">
+              "Fisika SMA tadinya terasa mustahil buat saya. Kak David ngajarinnya pelan-pelan dari dasarnya dulu. Akhirnya nilai ujian semester saya dapat 88. Terima kasih banyak Kak!"
+            </p>
+            <div class="author-modern">
+              <div class="author-badge-circle">AK</div>
+              <div class="author-details">
+                <h4>Anisa Kurnia</h4>
+                <p>Siswa Kelas 11 SMA</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         TANYA JAWAB UMUM (FAQ) DENGAN KARTU BIRU MUDAH
+         ========================================================== -->
+    <section class="section-padding" id="tanya-jawab" style="background-color: #f1f5f9;">
+      <div class="container">
+        <div class="section-heading-box">
+          <span class="pill-section-tag">Pertanyaan Sering Diajukan</span>
+          <h2 class="section-title-large">Jawaban Jelas Tanpa Istilah Membingungkan</h2>
+          <p class="section-subtitle-text">Klik pada pertanyaan di bawah untuk membaca penjelasannya.</p>
+        </div>
+
+        <div class="faq-wrapper-modern">
+          <div class="faq-item-modern terbuka">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>Bagaimana jika anak saya sangat pemalu dan takut pada guru baru?</span>
+              <span class="faq-arrow-icon">+</span>
+            </button>
+            <div class="faq-answer-modern">
+              Hal itu sangat wajar terjadi! Semua guru di BantuBelajar dilatih khusus untuk mendekati anak secara hangat dan ramah. Di 15 menit pertama sesi gratis, guru tidak akan langsung memberikan soal sulit, melainkan mengobrol santai agar anak merasa aman dan nyaman terlebih dahulu.
+            </div>
+          </div>
+
+          <div class="faq-item-modern">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>Apakah sesi uji coba 30 menit benar-benar gratis tanpa bayar?</span>
+              <span class="faq-arrow-icon">+</span>
+            </button>
+            <div class="faq-answer-modern">
+              Ya, 100% Gratis! Tidak perlu memasukkan kartu kredit ataupun membayar uang muka. Jika setelah 30 menit anak merasa kurang cocok, Anda boleh berhenti kapan saja tanpa denda atau kewajiban apapun.
+            </div>
+          </div>
+
+          <div class="faq-item-modern">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>Saya tidak mengerti teknologi canggih, apakah les online akan sulit?</span>
+              <span class="faq-arrow-icon">+</span>
+            </button>
+            <div class="faq-answer-modern">
+              Sangat mudah! Kami cukup mengirimkan satu tautan (link) lewat WhatsApp ke HP Anda. Anda tinggal memencet tautan tersebut, dan layar video call guru akan langsung terbuka otomatis. Selain itu, Anda juga bisa memilih opsi Guru Datang Langsung ke Rumah jika tidak ingin online.
+            </div>
+          </div>
+
+          <div class="faq-item-modern">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>Bagaimana jika di kemudian hari kami ingin ganti guru?</span>
+              <span class="faq-arrow-icon">+</span>
+            </button>
+            <div class="faq-answer-modern">
+              Bisa langsung ganti kapan saja dengan satu pesan WhatsApp ke admin kami. Kami akan mencarikan pengganti guru yang paling sesuai dengan gaya belajar anak tanpa biaya administrasi tambahan.
+            </div>
+          </div>
+        </div>
+
+        <!-- BANTUAN TELEPON BALIK DENGAN GRADASI -->
+        <div class="callback-gradient-box">
+          <h3>Ingin Kami Hubungi Lewat Telepon Saja?</h3>
+          <p>Masukkan nomor HP atau WhatsApp Anda. Tim kami akan menelepon Anda dalam 10 menit untuk membantu konsultasi gratis.</p>
+          <form class="callback-form-flex" onsubmit="event.preventDefault(); kirimCallback();">
+            <input type="tel" id="inputTelCallback" class="callback-input" placeholder="Contoh: 0812-3456-7890" required>
+            <button type="submit" class="btn-callback-action">Minta Ditelepon Sekarang 📞</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================
+       FOOTER DENGAN KONTRAS TINGGI
+       ========================================================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid-modern">
+        <div class="footer-col-about">
+          <h4>BantuBelajar</h4>
+          <p>
+            Layanan bimbingan belajar ramah dan sabar untuk mendampingi siswa yang kesulitan memahami pelajaran sekolah. Kami percaya setiap anak mampu berprestasi jika didampingi dengan penuh kesabaran.
+          </p>
+          <p><strong style="color: #ffffff;">Layanan Pelanggan:</strong> Buka Setiap Hari (08.00 - 21.00 WIB)</p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5>Pelajaran Favorit</h5>
+          <ul class="footer-link-group">
+            <li><a href="#cari-guru">Matematika & Aljabar</a></li>
+            <li><a href="#cari-guru">IPA, Fisika & Kimia</a></li>
+            <li><a href="#cari-guru">Bahasa Inggris</a></li>
+            <li><a href="#cari-guru">Bimbingan PR Tematik SD</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5>Tentang Layanan</h5>
+          <ul class="footer-link-group">
+            <li><a href="#cara-kerja">Cara Kerja</a></li>
+            <li><a href="#tutor-berpengalaman">Daftar Guru Kami</a></li>
+            <li><a href="#tanya-jawab">Pertanyaan Sering Diajukan</a></li>
+            <li><a href="#">Standar Keamanan Tutor</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5>Kontak Langsung</h5>
+          <ul class="footer-link-group">
+            <li><a href="tel:08001234567">📞 0800-123-4567 (Bebas Pulsa)</a></li>
+            <li><a href="https://wa.me/6281234567890">💬 WhatsApp: 0812-3456-7890</a></li>
+            <li><a href="mailto:bantuan@bantubelajar.id">✉️ bantuan@bantubelajar.id</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-copyright">
+        <p>&copy; 2026 BantuBelajar. Hak Cipta Dilindungi Undang-Undang.</p>
+        <p>Didesain dengan warna biru segar, sederhana, dan ramah untuk semua orang.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================
+       MODAL POPUP PESAN KELAS UJI COBA
+       ========================================================== -->
+  <div class="modal-shade" id="modalBookingBox" onclick="tutupJikaKlikLuar(event)">
+    <div class="modal-box-card">
+      <button class="btn-close-modal" onclick="tutupModal()" aria-label="Tutup jendela">×</button>
+      <div class="modal-heading-area">
+        <h3>Pesan Sesi Uji Coba Gratis</h3>
+        <p>Kenalan dengan guru pilihan Anda selama 30 menit tanpa biaya sepeser pun.</p>
+      </div>
+
+      <form class="modal-form-stack" onsubmit="event.preventDefault(); prosesBooking();">
+        <div class="input-group-modern">
+          <label>Tutor Pilihan Anda:</label>
+          <input type="text" id="inputTutorDipilih" class="select-modern" readonly style="background-color: #f1f5f9; font-weight: 800;">
+        </div>
+
+        <div class="input-group-modern">
+          <label for="inputNamaSiswa">Nama Lengkap Siswa:</label>
+          <input type="text" id="inputNamaSiswa" class="select-modern" placeholder="Contoh: Dimas Aditya" required>
+        </div>
+
+        <div class="input-group-modern">
+          <label for="inputTeleponOrtu">Nomor WhatsApp Orang Tua:</label>
+          <input type="tel" id="inputTeleponOrtu" class="select-modern" placeholder="Contoh: 0812-3456-7890" required>
+        </div>
+
+        <div class="input-group-modern">
+          <label for="inputJadwal">Pilihan Hari & Jam:</label>
+          <input type="datetime-local" id="inputJadwal" class="select-modern" required>
+        </div>
+
+        <button type="submit" class="btn-gradient-search" style="margin-top: 10px;">
+          <span>Konfirmasi Sesi Gratis 🎉</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- NOTIFIKASI TOAST -->
+  <div class="toast-modern" id="toastPopUp">
+    <span style="font-size: 1.5rem;">✅</span>
+    <span id="toastTeks">Pemberitahuan berhasil!</span>
+  </div>
+
+  <!-- ==========================================================
+       JAVASCRIPT RINGAN & PRAKTIS
+       ========================================================== -->
+  <script>
+    // 1. Pengatur Ukuran Huruf (Aksesibilitas bagi Orang Tua)
+    const btnFont = document.getElementById('btnToggleFont');
+    let isBigFont = false;
+
+    btnFont.addEventListener('click', function() {
+      isBigFont = !isBigFont;
+      document.body.classList.toggle('teks-besar', isBigFont);
+      if (isBigFont) {
+        btnFont.innerHTML = '<span>🔍</span> <strong>Ukuran Normal</strong>';
+      } else {
+        btnFont.innerHTML = '<span>🔍</span> <strong>Perbesar Tulisan</strong>';
+      }
+    });
+
+    // 2. Accordion FAQ
+    function toggleFaq(btn) {
+      const card = btn.parentElement;
+      const isOpen = card.classList.contains('terbuka');
+
+      document.querySelectorAll('.faq-item-modern').forEach(el => el.classList.remove('terbuka'));
+
+      if (!isOpen) {
+        card.classList.add('terbuka');
+      }
+    }
+
+    // 3. Filter Kategori Tutor
+    function filterKategori(kat, btn) {
+      document.querySelectorAll('.filter-btn-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.tutor-card-clean');
+      cards.forEach(card => {
+        const p = card.getAttribute('data-pelajaran');
+        if (kat === 'semua' || p === kat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // 4. Pencarian Cepat
+    function lakukanPencarian() {
+      const mapel = document.getElementById('pilihanMataPelajaran').value;
+      const cards = document.querySelectorAll('.tutor-card-clean');
+      let count = 0;
+
+      cards.forEach(card => {
+        const p = card.getAttribute('data-pelajaran');
+        if (mapel === 'semua' || mapel === 'pr' || p === mapel) {
+          card.style.display = 'flex';
+          count++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      document.querySelectorAll('.filter-btn-pill').forEach(b => {
+        if (b.getAttribute('data-kat') === mapel) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+
+      document.getElementById('tutor-berpengalaman').scrollIntoView({ behavior: 'smooth' });
+      tampilkanToast(`Menemukan ${count} tutor berpengalaman yang siap membantu!`);
+    }
+
+    // 5. Modal Pemesanan Sesi Gratis
+    const modalBox = document.getElementById('modalBookingBox');
+    const inputTutor = document.getElementById('inputTutorDipilih');
+
+    function bukaModal(nama, mapel) {
+      inputTutor.value = `${nama} - ${mapel}`;
+      modalBox.classList.add('aktif');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function tutupModal() {
+      modalBox.classList.remove('aktif');
+      document.body.style.overflow = '';
+    }
+
+    function tutupJikaKlikLuar(e) {
+      if (e.target === modalBox) {
+        tutupModal();
+      }
+    }
+
+    function prosesBooking() {
+      const nama = document.getElementById('inputNamaSiswa').value;
+      tutupModal();
+      tampilkanToast(`Terima kasih! Jadwal uji coba gratis untuk ananda ${nama} telah tercatat. Kami akan mengirimkan detail via WhatsApp.`);
+      document.getElementById('inputNamaSiswa').value = '';
+      document.getElementById('inputTeleponOrtu').value = '';
+      document.getElementById('inputJadwal').value = '';
+    }
+
+    // 6. Form Callback
+    function kirimCallback() {
+      const tel = document.getElementById('inputTelCallback').value;
+      tampilkanToast(`Permintaan terkirim! Tim kami akan menelepon nomor ${tel} sebentar lagi.`);
+      document.getElementById('inputTelCallback').value = '';
+    }
+
+    // 7. Notifikasi Toast
+    function tampilkanToast(pesan) {
+      const toast = document.getElementById('toastPopUp');
+      const teks = document.getElementById('toastTeks');
+      teks.textContent = pesan;
+      toast.style.display = 'flex';
+
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 4500);
+    }
+  </script>
+</body>
+</html>
